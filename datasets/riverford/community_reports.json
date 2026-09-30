@@ -1,0 +1,1273 @@
+[
+  {
+    "report_id": "central-report-000",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0001",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 1,
+      "reporter_type": "household",
+      "people_affected": "1",
+      "immediate_danger": "no",
+      "self_reported_urgency": 0,
+      "primary_needs": [
+        "food"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "central-report-001",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0002",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 2,
+      "reporter_type": "household",
+      "people_affected": "2",
+      "immediate_danger": "no",
+      "self_reported_urgency": 3,
+      "primary_needs": [
+        "water",
+        "food"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "central-report-002",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0003",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 3,
+      "reporter_type": "household",
+      "people_affected": "3",
+      "immediate_danger": "no",
+      "self_reported_urgency": 8,
+      "primary_needs": [
+        "water"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "central-report-003",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0004",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 4,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "no",
+      "self_reported_urgency": 7,
+      "primary_needs": [
+        "shelter",
+        "transport"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "central-report-004",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0005",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 5,
+      "reporter_type": "household",
+      "people_affected": "2",
+      "immediate_danger": "yes",
+      "self_reported_urgency": 8,
+      "primary_needs": [
+        "water"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "central-report-005",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0006",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 6,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "yes",
+      "self_reported_urgency": 10,
+      "primary_needs": [
+        "rescue_evacuation",
+        "shelter"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "no"
+    }
+  },
+  {
+    "report_id": "central-report-006",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0007",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 7,
+      "reporter_type": "household",
+      "people_affected": "1",
+      "immediate_danger": "no",
+      "self_reported_urgency": 2,
+      "primary_needs": [
+        "communication",
+        "electricity"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "central-report-007",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0008",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 8,
+      "reporter_type": "household",
+      "people_affected": "3",
+      "immediate_danger": "no",
+      "self_reported_urgency": 5,
+      "primary_needs": [
+        "transport"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "central-report-008",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0009",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 9,
+      "reporter_type": "household",
+      "people_affected": "1",
+      "immediate_danger": "no",
+      "self_reported_urgency": 0,
+      "primary_needs": [
+        "food"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "central-report-009",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0010",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 10,
+      "reporter_type": "household",
+      "people_affected": "2",
+      "immediate_danger": "no",
+      "self_reported_urgency": 3,
+      "primary_needs": [
+        "water",
+        "food"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "central-report-010",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0011",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 11,
+      "reporter_type": "household",
+      "people_affected": "3",
+      "immediate_danger": "no",
+      "self_reported_urgency": 8,
+      "primary_needs": [
+        "water"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "central-report-011",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0012",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 12,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "no",
+      "self_reported_urgency": 7,
+      "primary_needs": [
+        "shelter",
+        "transport"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "central-report-012",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0013",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 13,
+      "reporter_type": "household",
+      "people_affected": "2",
+      "immediate_danger": "yes",
+      "self_reported_urgency": 8,
+      "primary_needs": [
+        "water"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "central-report-013",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0014",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 14,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "yes",
+      "self_reported_urgency": 10,
+      "primary_needs": [
+        "rescue_evacuation",
+        "shelter"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "no"
+    }
+  },
+  {
+    "report_id": "central-report-014",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0015",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 15,
+      "reporter_type": "household",
+      "people_affected": "1",
+      "immediate_danger": "no",
+      "self_reported_urgency": 2,
+      "primary_needs": [
+        "communication",
+        "electricity"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "central-report-015",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0016",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 16,
+      "reporter_type": "household",
+      "people_affected": "3",
+      "immediate_danger": "no",
+      "self_reported_urgency": 5,
+      "primary_needs": [
+        "transport"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "central-report-016",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0017",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 17,
+      "reporter_type": "household",
+      "people_affected": "1",
+      "immediate_danger": "no",
+      "self_reported_urgency": 0,
+      "primary_needs": [
+        "food"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "central-report-017",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0018",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 18,
+      "reporter_type": "household",
+      "people_affected": "2",
+      "immediate_danger": "no",
+      "self_reported_urgency": 3,
+      "primary_needs": [
+        "water",
+        "food"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "central-report-018",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0019",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 19,
+      "reporter_type": "household",
+      "people_affected": "3",
+      "immediate_danger": "no",
+      "self_reported_urgency": 8,
+      "primary_needs": [
+        "water"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "central-report-019",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0020",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 20,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "no",
+      "self_reported_urgency": 7,
+      "primary_needs": [
+        "shelter",
+        "transport"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "central-report-020",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0021",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 21,
+      "reporter_type": "household",
+      "people_affected": "2",
+      "immediate_danger": "yes",
+      "self_reported_urgency": 8,
+      "primary_needs": [
+        "water"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "central-report-021",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0022",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 22,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "yes",
+      "self_reported_urgency": 10,
+      "primary_needs": [
+        "rescue_evacuation",
+        "shelter"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "no"
+    }
+  },
+  {
+    "report_id": "central-report-022",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0023",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 23,
+      "reporter_type": "household",
+      "people_affected": "1",
+      "immediate_danger": "no",
+      "self_reported_urgency": 2,
+      "primary_needs": [
+        "communication",
+        "electricity"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "central-report-023",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0024",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 24,
+      "reporter_type": "household",
+      "people_affected": "3",
+      "immediate_danger": "no",
+      "self_reported_urgency": 5,
+      "primary_needs": [
+        "transport"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "central-report-024",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0025",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 25,
+      "reporter_type": "household",
+      "people_affected": "1",
+      "immediate_danger": "no",
+      "self_reported_urgency": 0,
+      "primary_needs": [
+        "food"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "central-report-025",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0026",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 26,
+      "reporter_type": "household",
+      "people_affected": "2",
+      "immediate_danger": "no",
+      "self_reported_urgency": 3,
+      "primary_needs": [
+        "water",
+        "food"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "central-report-026",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0027",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 27,
+      "reporter_type": "household",
+      "people_affected": "3",
+      "immediate_danger": "no",
+      "self_reported_urgency": 8,
+      "primary_needs": [
+        "water"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "central-report-027",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0028",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 28,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "no",
+      "self_reported_urgency": 7,
+      "primary_needs": [
+        "shelter",
+        "transport"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "central-report-028",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0029",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 29,
+      "reporter_type": "household",
+      "people_affected": "2",
+      "immediate_danger": "yes",
+      "self_reported_urgency": 8,
+      "primary_needs": [
+        "water"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "central-report-029",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0030",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 30,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "yes",
+      "self_reported_urgency": 10,
+      "primary_needs": [
+        "rescue_evacuation",
+        "shelter"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "no"
+    }
+  },
+  {
+    "report_id": "central-report-030",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0031",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 31,
+      "reporter_type": "household",
+      "people_affected": "1",
+      "immediate_danger": "no",
+      "self_reported_urgency": 2,
+      "primary_needs": [
+        "communication",
+        "electricity"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "central-report-031",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0032",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 32,
+      "reporter_type": "household",
+      "people_affected": "3",
+      "immediate_danger": "no",
+      "self_reported_urgency": 5,
+      "primary_needs": [
+        "transport"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "central-report-032",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0033",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 33,
+      "reporter_type": "household",
+      "people_affected": "1",
+      "immediate_danger": "no",
+      "self_reported_urgency": 0,
+      "primary_needs": [
+        "food"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "central-report-033",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0034",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 34,
+      "reporter_type": "household",
+      "people_affected": "2",
+      "immediate_danger": "no",
+      "self_reported_urgency": 3,
+      "primary_needs": [
+        "water",
+        "food"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "central-report-034",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0035",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 35,
+      "reporter_type": "household",
+      "people_affected": "3",
+      "immediate_danger": "no",
+      "self_reported_urgency": 8,
+      "primary_needs": [
+        "water"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "central-report-035",
+    "region_id": "central",
+    "household_id": "fictional-central-household-0036",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "central",
+      "household_number": 36,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "no",
+      "self_reported_urgency": 7,
+      "primary_needs": [
+        "shelter",
+        "transport"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "eastbank-report-000",
+    "region_id": "eastbank",
+    "household_id": "fictional-eastbank-household-0001",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "eastbank",
+      "household_number": 1,
+      "reporter_type": "household",
+      "people_affected": "3",
+      "immediate_danger": "no",
+      "self_reported_urgency": 8,
+      "primary_needs": [
+        "water"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "eastbank-report-001",
+    "region_id": "eastbank",
+    "household_id": "fictional-eastbank-household-0002",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "eastbank",
+      "household_number": 2,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "no",
+      "self_reported_urgency": 7,
+      "primary_needs": [
+        "shelter",
+        "transport"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "eastbank-report-002",
+    "region_id": "eastbank",
+    "household_id": "fictional-eastbank-household-0003",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "eastbank",
+      "household_number": 3,
+      "reporter_type": "household",
+      "people_affected": "2",
+      "immediate_danger": "yes",
+      "self_reported_urgency": 8,
+      "primary_needs": [
+        "water"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "eastbank-report-003",
+    "region_id": "eastbank",
+    "household_id": "fictional-eastbank-household-0004",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "eastbank",
+      "household_number": 4,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "yes",
+      "self_reported_urgency": 10,
+      "primary_needs": [
+        "rescue_evacuation",
+        "shelter"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "no"
+    }
+  },
+  {
+    "report_id": "eastbank-report-004",
+    "region_id": "eastbank",
+    "household_id": "fictional-eastbank-household-0005",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "eastbank",
+      "household_number": 5,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "no",
+      "self_reported_urgency": 7,
+      "primary_needs": [
+        "shelter",
+        "transport"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "eastbank-report-005",
+    "region_id": "eastbank",
+    "household_id": "fictional-eastbank-household-0006",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "eastbank",
+      "household_number": 6,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "yes",
+      "self_reported_urgency": 10,
+      "primary_needs": [
+        "rescue_evacuation",
+        "shelter"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "no"
+    }
+  },
+  {
+    "report_id": "eastbank-report-006",
+    "region_id": "eastbank",
+    "household_id": "fictional-eastbank-household-0007",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "eastbank",
+      "household_number": 7,
+      "reporter_type": "household",
+      "people_affected": "3",
+      "immediate_danger": "no",
+      "self_reported_urgency": 8,
+      "primary_needs": [
+        "water"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "eastbank-report-007",
+    "region_id": "eastbank",
+    "household_id": "fictional-eastbank-household-0008",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "eastbank",
+      "household_number": 8,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "no",
+      "self_reported_urgency": 7,
+      "primary_needs": [
+        "shelter",
+        "transport"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "eastbank-report-008",
+    "region_id": "eastbank",
+    "household_id": "fictional-eastbank-household-0009",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "eastbank",
+      "household_number": 9,
+      "reporter_type": "household",
+      "people_affected": "2",
+      "immediate_danger": "yes",
+      "self_reported_urgency": 8,
+      "primary_needs": [
+        "water"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "eastbank-report-009",
+    "region_id": "eastbank",
+    "household_id": "fictional-eastbank-household-0010",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "eastbank",
+      "household_number": 10,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "yes",
+      "self_reported_urgency": 10,
+      "primary_needs": [
+        "rescue_evacuation",
+        "shelter"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "no"
+    }
+  },
+  {
+    "report_id": "eastbank-report-010",
+    "region_id": "eastbank",
+    "household_id": "fictional-eastbank-household-0011",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "eastbank",
+      "household_number": 11,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "no",
+      "self_reported_urgency": 7,
+      "primary_needs": [
+        "shelter",
+        "transport"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "eastbank-report-011",
+    "region_id": "eastbank",
+    "household_id": "fictional-eastbank-household-0012",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "eastbank",
+      "household_number": 12,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "yes",
+      "self_reported_urgency": 10,
+      "primary_needs": [
+        "rescue_evacuation",
+        "shelter"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "no"
+    }
+  },
+  {
+    "report_id": "eastbank-report-012",
+    "region_id": "eastbank",
+    "household_id": "fictional-eastbank-household-0013",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "eastbank",
+      "household_number": 13,
+      "reporter_type": "household",
+      "people_affected": "3",
+      "immediate_danger": "no",
+      "self_reported_urgency": 8,
+      "primary_needs": [
+        "water"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "eastbank-report-013",
+    "region_id": "eastbank",
+    "household_id": "fictional-eastbank-household-0014",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "eastbank",
+      "household_number": 14,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "no",
+      "self_reported_urgency": 7,
+      "primary_needs": [
+        "shelter",
+        "transport"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "eastbank-report-014",
+    "region_id": "eastbank",
+    "household_id": "fictional-eastbank-household-0015",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "eastbank",
+      "household_number": 15,
+      "reporter_type": "household",
+      "people_affected": "2",
+      "immediate_danger": "yes",
+      "self_reported_urgency": 8,
+      "primary_needs": [
+        "water"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "eastbank-report-015",
+    "region_id": "eastbank",
+    "household_id": "fictional-eastbank-household-0016",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "eastbank",
+      "household_number": 16,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "yes",
+      "self_reported_urgency": 10,
+      "primary_needs": [
+        "rescue_evacuation",
+        "shelter"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "no"
+    }
+  },
+  {
+    "report_id": "eastbank-report-016",
+    "region_id": "eastbank",
+    "household_id": "fictional-eastbank-household-0017",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "eastbank",
+      "household_number": 17,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "no",
+      "self_reported_urgency": 7,
+      "primary_needs": [
+        "shelter",
+        "transport"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "eastbank-report-017",
+    "region_id": "eastbank",
+    "household_id": "fictional-eastbank-household-0018",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "eastbank",
+      "household_number": 18,
+      "reporter_type": "household",
+      "people_affected": "4+",
+      "immediate_danger": "yes",
+      "self_reported_urgency": 10,
+      "primary_needs": [
+        "rescue_evacuation",
+        "shelter"
+      ],
+      "shelter_status": "unsafe",
+      "responder_access": "no"
+    }
+  },
+  {
+    "report_id": "hillcrest-report-000",
+    "region_id": "hillcrest",
+    "household_id": "fictional-hillcrest-household-0001",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "hillcrest",
+      "household_number": 1,
+      "reporter_type": "household",
+      "people_affected": "1",
+      "immediate_danger": "no",
+      "self_reported_urgency": 0,
+      "primary_needs": [
+        "food"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "hillcrest-report-001",
+    "region_id": "hillcrest",
+    "household_id": "fictional-hillcrest-household-0002",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "hillcrest",
+      "household_number": 2,
+      "reporter_type": "household",
+      "people_affected": "2",
+      "immediate_danger": "no",
+      "self_reported_urgency": 3,
+      "primary_needs": [
+        "water",
+        "food"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "hillcrest-report-002",
+    "region_id": "hillcrest",
+    "household_id": "fictional-hillcrest-household-0003",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "hillcrest",
+      "household_number": 3,
+      "reporter_type": "household",
+      "people_affected": "3",
+      "immediate_danger": "no",
+      "self_reported_urgency": 8,
+      "primary_needs": [
+        "water"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "unsure"
+    }
+  },
+  {
+    "report_id": "hillcrest-report-003",
+    "region_id": "hillcrest",
+    "household_id": "fictional-hillcrest-household-0004",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "hillcrest",
+      "household_number": 4,
+      "reporter_type": "household",
+      "people_affected": "1",
+      "immediate_danger": "no",
+      "self_reported_urgency": 2,
+      "primary_needs": [
+        "communication",
+        "electricity"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "south_meadows-report-000",
+    "region_id": "south_meadows",
+    "household_id": "fictional-south_meadows-household-0001",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "south_meadows",
+      "household_number": 1,
+      "reporter_type": "household",
+      "people_affected": "1",
+      "immediate_danger": "no",
+      "self_reported_urgency": 0,
+      "primary_needs": [
+        "food"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "south_meadows-report-001",
+    "region_id": "south_meadows",
+    "household_id": "fictional-south_meadows-household-0002",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "south_meadows",
+      "household_number": 2,
+      "reporter_type": "household",
+      "people_affected": "2",
+      "immediate_danger": "no",
+      "self_reported_urgency": 3,
+      "primary_needs": [
+        "water",
+        "food"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "south_meadows-report-002",
+    "region_id": "south_meadows",
+    "household_id": "fictional-south_meadows-household-0003",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "south_meadows",
+      "household_number": 3,
+      "reporter_type": "household",
+      "people_affected": "1",
+      "immediate_danger": "no",
+      "self_reported_urgency": 2,
+      "primary_needs": [
+        "communication",
+        "electricity"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "south_meadows-report-003",
+    "region_id": "south_meadows",
+    "household_id": "fictional-south_meadows-household-0004",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "south_meadows",
+      "household_number": 4,
+      "reporter_type": "household",
+      "people_affected": "3",
+      "immediate_danger": "no",
+      "self_reported_urgency": 5,
+      "primary_needs": [
+        "transport"
+      ],
+      "shelter_status": "unsure",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "south_meadows-report-004",
+    "region_id": "south_meadows",
+    "household_id": "fictional-south_meadows-household-0005",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "south_meadows",
+      "household_number": 5,
+      "reporter_type": "household",
+      "people_affected": "1",
+      "immediate_danger": "no",
+      "self_reported_urgency": 0,
+      "primary_needs": [
+        "food"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "south_meadows-report-005",
+    "region_id": "south_meadows",
+    "household_id": "fictional-south_meadows-household-0006",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "south_meadows",
+      "household_number": 6,
+      "reporter_type": "household",
+      "people_affected": "2",
+      "immediate_danger": "no",
+      "self_reported_urgency": 3,
+      "primary_needs": [
+        "water",
+        "food"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  },
+  {
+    "report_id": "south_meadows-report-006",
+    "region_id": "south_meadows",
+    "household_id": "fictional-south_meadows-household-0007",
+    "hours_since_earthquake": 1.5,
+    "form_assessment": {
+      "region_id": "south_meadows",
+      "household_number": 7,
+      "reporter_type": "household",
+      "people_affected": "1",
+      "immediate_danger": "no",
+      "self_reported_urgency": 2,
+      "primary_needs": [
+        "communication",
+        "electricity"
+      ],
+      "shelter_status": "safe",
+      "responder_access": "yes"
+    }
+  }
+]

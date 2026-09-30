@@ -1,0 +1,44 @@
+[
+  {
+    "region_id": "central",
+    "region_name": "Central",
+    "fictional_population": 6500,
+    "occupied_households": 2600,
+    "reporting_participation": 0.8
+  },
+  {
+    "region_id": "eastbank",
+    "region_name": "Eastbank",
+    "fictional_population": 5500,
+    "occupied_households": 2200,
+    "reporting_participation": 0.7
+  },
+  {
+    "region_id": "westbridge",
+    "region_name": "Westbridge",
+    "fictional_population": 4200,
+    "occupied_households": 1680,
+    "reporting_participation": 0.8
+  },
+  {
+    "region_id": "hillcrest",
+    "region_name": "Hillcrest",
+    "fictional_population": 2500,
+    "occupied_households": 1000,
+    "reporting_participation": 0.65
+  },
+  {
+    "region_id": "industrial",
+    "region_name": "Industrial",
+    "fictional_population": 300,
+    "occupied_households": 120,
+    "reporting_participation": 0.5
+  },
+  {
+    "region_id": "south_meadows",
+    "region_name": "South Meadows",
+    "fictional_population": 1000,
+    "occupied_households": 400,
+    "reporting_participation": 0.8
+  }
+]

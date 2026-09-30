@@ -1,0 +1,42 @@
+{
+  "source": "Hand-authored fictional scenario truth; not model predictions or training labels.",
+  "purpose": "Known simulated damage and visibility conditions for reviewing this example. No claim of classification accuracy.",
+  "regions": [
+    {
+      "region_id": "central",
+      "simulated_actual_damage_fraction": 0.48,
+      "simulated_communication_outage": false,
+      "scenario_note": "Fictional comparison region."
+    },
+    {
+      "region_id": "eastbank",
+      "simulated_actual_damage_fraction": 0.68,
+      "simulated_communication_outage": false,
+      "scenario_note": "Fictional comparison region."
+    },
+    {
+      "region_id": "westbridge",
+      "simulated_actual_damage_fraction": 0.9,
+      "simulated_communication_outage": true,
+      "scenario_note": "Heavily damaged occupied region; communications lost and no reports reach collection."
+    },
+    {
+      "region_id": "hillcrest",
+      "simulated_actual_damage_fraction": 0.3,
+      "simulated_communication_outage": false,
+      "scenario_note": "Fictional comparison region."
+    },
+    {
+      "region_id": "industrial",
+      "simulated_actual_damage_fraction": 0.08,
+      "simulated_communication_outage": false,
+      "scenario_note": "Low estimated occupancy and mild impact; zero reports alone should not trigger a damage-and-silence alert."
+    },
+    {
+      "region_id": "south_meadows",
+      "simulated_actual_damage_fraction": 0.12,
+      "simulated_communication_outage": false,
+      "scenario_note": "Fictional comparison region."
+    }
+  ]
+}

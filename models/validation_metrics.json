@@ -1,0 +1,15 @@
+{
+  "evaluation_source": "held-out synthetic earthquake scenarios only",
+  "training_events": 90,
+  "test_events": 30,
+  "training_rows": 2160,
+  "test_rows": 720,
+  "event_split_overlap": 0,
+  "mean_absolute_count_error": 10.72352872598859,
+  "model_poisson_deviance": 5.015729831361361,
+  "constant_rate_poisson_deviance": 46.06632049989536,
+  "prediction_interval_90_coverage": 0.8930555555555556,
+  "strict_poisson_interval_90_coverage": 0.6902777777777778,
+  "normal_reporting_lower_tail_flag_rate_at_05": 0.03888888888888889,
+  "limitation": "These metrics test recovery of invented simulation behaviour, not operational accuracy."
+}

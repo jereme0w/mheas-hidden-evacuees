@@ -1,0 +1,10 @@
+{
+  "event_id": "riverford-fictional-quake-001",
+  "scenario": "Entirely fictional shallow earthquake at 03:00; snapshot two hours later.",
+  "hours_since_earthquake": 2.0,
+  "report_feed_complete": true,
+  "meaning_of_complete": "The collection system has processed all submissions received up to this snapshot. This does not mean every household was able to submit.",
+  "earthquake_at": "2026-10-01T03:00:00+00:00",
+  "clock_mode": "fixed_demo_snapshot",
+  "context_version": 1
+}

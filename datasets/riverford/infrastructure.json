@@ -1,0 +1,50 @@
+[
+  {
+    "region_id": "central",
+    "communications_available": true,
+    "bridge_closed": false,
+    "roads_disrupted": false,
+    "infrastructure_status": "Moderate",
+    "communications_status": "Normal"
+  },
+  {
+    "region_id": "eastbank",
+    "communications_available": true,
+    "bridge_closed": false,
+    "roads_disrupted": true,
+    "infrastructure_status": "Major",
+    "communications_status": "Normal"
+  },
+  {
+    "region_id": "westbridge",
+    "communications_available": false,
+    "bridge_closed": true,
+    "roads_disrupted": true,
+    "infrastructure_status": "Severe",
+    "communications_status": "Outage"
+  },
+  {
+    "region_id": "hillcrest",
+    "communications_available": true,
+    "bridge_closed": false,
+    "roads_disrupted": false,
+    "infrastructure_status": "Moderate",
+    "communications_status": "Normal"
+  },
+  {
+    "region_id": "industrial",
+    "communications_available": true,
+    "bridge_closed": false,
+    "roads_disrupted": false,
+    "infrastructure_status": "Minor",
+    "communications_status": "Normal"
+  },
+  {
+    "region_id": "south_meadows",
+    "communications_available": true,
+    "bridge_closed": false,
+    "roads_disrupted": false,
+    "infrastructure_status": "Normal",
+    "communications_status": "Normal"
+  }
+]

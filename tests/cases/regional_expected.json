@@ -1,0 +1,29 @@
+{
+  "source": "Demonstration expectations for the supplied fictional scenario, not real-world evaluation labels.",
+  "regions": {
+    "central": {
+      "count": 36,
+      "classification": "No silence alert"
+    },
+    "eastbank": {
+      "count": 18,
+      "classification": "Monitor"
+    },
+    "westbridge": {
+      "count": 0,
+      "classification": "Investigate"
+    },
+    "hillcrest": {
+      "count": 4,
+      "classification": "No silence alert"
+    },
+    "industrial": {
+      "count": 0,
+      "classification": "No silence alert"
+    },
+    "south_meadows": {
+      "count": 7,
+      "classification": "No silence alert"
+    }
+  }
+}

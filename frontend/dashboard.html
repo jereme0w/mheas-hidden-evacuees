@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Riverford · Response overview</title>
+  <link rel="stylesheet" href="/dashboard.css">
+  <script src="/dashboard.js" defer></script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="/dashboard"><span class="brand-mark">R</span> Riverford <span class="brand-sub">Response overview</span></a><nav aria-label="Main navigation"><a href="/" target="_blank" rel="noopener">Submit a report ↗</a><a href="/api/regions" target="_blank" rel="noopener">Assessment JSON ↗</a></nav></header>
+<main>
+  <div class="page-heading"><div><p class="eyebrow">FICTIONAL EARTHQUAKE EXERCISE</p><h1>Regional visibility</h1><p class="muted">Compare what the city is experiencing with what responders can see.</p></div><div class="refresh-controls"><span class="snapshot" id="snapshot">Loading scenario…</span><button id="refresh" type="button">Refresh data</button></div></div>
+  <p id="loadStatus" class="load-status" role="status" aria-live="polite">Loading the reporting snapshot…</p>
+  <div id="errorBanner" class="error-banner" role="alert" hidden></div>
+  <section class="summary-grid" aria-label="City summary">
+    <article class="summary-card"><p>Visibility alerts</p><strong id="alertCount">—</strong><span id="alertCaption">Awaiting assessment</span></article>
+    <article class="summary-card"><p>Households reporting</p><strong id="reportCount">—</strong><span>Distinct households in this event</span></article>
+    <article class="summary-card"><p>Expected household reports</p><strong id="expectedCount">—</strong><span>Under functioning reporting conditions</span></article>
+    <article class="summary-card"><p>Estimated occupied households</p><strong id="occupiedCount">—</strong><span>Context for all six districts</span></article>
+  </section>
+  <div class="primary-grid">
+    <section class="panel map-panel"><div class="panel-heading"><div><h2>Riverford districts</h2><p class="muted">Select a district to inspect its reporting gap.</p></div><label class="compact-label">Map layer<select id="mapLayer"><option value="assessment">Visibility assessment</option><option value="damage">Assessed damage index</option></select></label></div>
+      <svg id="cityMap" viewBox="0 0 650 530" role="group" aria-label="Interactive fictional Riverford district map">
+        <rect x="8" y="8" width="634" height="514" rx="20" fill="#f5f8fa"/>
+        <path d="M290 0 Q260 130 299 235 Q330 355 295 530" stroke="#c4e1ee" stroke-width="29" fill="none"/>
+        <path d="M290 0 Q260 130 299 235 Q330 355 295 530" stroke="#94c9e0" stroke-width="2" fill="none"/>
+        <g class="district" data-region="central" role="button" tabindex="0" aria-label="Central"><path d="M36 44 H264 L262 160 L40 150 Z"/><text x="150" y="84">Central</text><text class="map-count" x="150" y="109">—</text><text class="map-status" x="150" y="132">Loading</text></g>
+        <g class="district" data-region="westbridge" role="button" tabindex="0" aria-label="Westbridge"><path d="M40 170 L269 180 L278 325 L36 320 Z"/><text x="151" y="221">Westbridge</text><text class="map-count" x="151" y="247">—</text><text class="map-status" x="151" y="272">Loading</text></g>
+        <g class="district" data-region="industrial" role="button" tabindex="0" aria-label="Industrial"><path d="M36 340 L278 346 L265 482 H42 Z"/><text x="150" y="390">Industrial</text><text class="map-count" x="150" y="416">—</text><text class="map-status" x="150" y="441">Loading</text></g>
+        <g class="district" data-region="hillcrest" role="button" tabindex="0" aria-label="Hillcrest"><path d="M318 44 H608 L614 179 L328 175 Z"/><text x="463" y="91">Hillcrest</text><text class="map-count" x="463" y="117">—</text><text class="map-status" x="463" y="142">Loading</text></g>
+        <g class="district" data-region="eastbank" role="button" tabindex="0" aria-label="Eastbank"><path d="M337 196 H612 L608 329 L342 328 Z"/><text x="476" y="242">Eastbank</text><text class="map-count" x="476" y="268">—</text><text class="map-status" x="476" y="293">Loading</text></g>
+        <g class="district" data-region="south_meadows" role="button" tabindex="0" aria-label="South Meadows"><path d="M340 349 L609 347 L605 483 H326 Z"/><text x="467" y="395">South Meadows</text><text class="map-count" x="467" y="421">—</text><text class="map-status" x="467" y="446">Loading</text></g>
+        <text class="river-label" transform="translate(303 145) rotate(87)" aria-hidden="true">RIVERFORD RIVER</text>
+        <text x="48" y="510" class="map-note">Schematic city · no geographic scale</text>
+        <text x="603" y="26" class="map-note" aria-hidden="true">↑ N</text>
+      </svg>
+      <div id="mapLegend" class="legend" aria-label="Map legend"></div>
+      <p class="fine-print">A district with no silence alert is not confirmed safe.</p>
+    </section>
+    <aside class="panel district-panel" id="districtPanel" aria-labelledby="districtTitle"><div class="panel-heading"><div><p class="eyebrow">SELECTED DISTRICT</p><h2 id="districtTitle">Choose a district</h2></div><span id="districtBadge" class="badge">Awaiting data</span></div><p id="districtReason" class="district-reason">The selected district’s context and model assessment will appear here.</p><div class="detail-counts"><div><strong id="selectedReceived">—</strong><span>Received</span></div><div><strong id="selectedExpected">—</strong><span>Expected</span></div></div><p id="predictionRange" class="range-note">90% predictive range: —</p><dl id="districtContext" class="context-list"></dl><button class="secondary" id="filterDistrict" type="button" disabled>Show this district’s reports ↓</button><p class="fine-print">Expected counts assume functioning reporting. A shortfall is a report gap, not an estimate of missing people.</p></aside>
+  </div>
+  <div class="secondary-grid">
+    <section class="panel"><div class="panel-heading"><div><h2>Received versus expected</h2><p class="muted">Distinct reporting households, using one shared scale.</p></div></div><div class="legend"><span><i class="swatch received"></i>Received</span><span><i class="swatch expected"></i>Expected mean</span></div><div id="reportChart" class="report-chart"><p class="empty">Awaiting report counts.</p></div></section>
+    <section class="panel"><div class="panel-heading"><div><h2>District review queue</h2><p class="muted">Visibility alerts and areas needing attention.</p></div></div><div id="reviewQueue"><p class="empty">Awaiting assessment.</p></div><p class="fine-print">“Investigate” combines unusual silence with substantial assessed damage. “Monitor” can reflect damage alone.</p></section>
+  </div>
+  <section class="panel reports-panel"><div class="panel-heading"><div><h2>Community reports</h2><p id="reportsCaption" class="muted">Reports submitted through the form.</p></div><div class="report-controls"><label>District<select id="reportDistrict"><option value="">All districts</option></select></label><label>Report priority<select id="priorityFilter"><option value="">All priorities</option><option>Critical</option><option>High</option><option>Moderate</option><option>Low</option></select></label></div></div><label class="checkbox-label"><input id="showFixtures" type="checkbox"> Include legacy count fixtures</label><div class="table-scroll"><table><thead><tr><th>District / household</th><th>Help requested</th><th>Report priority</th><th>Source</th><th>Details</th></tr></thead><tbody id="reportRows"><tr><td colspan="5">Loading reports…</td></tr></tbody></table></div><p id="reportLimit" class="fine-print"></p></section>
+  <section id="reportDetails" class="panel report-details" hidden><div class="panel-heading"><h2 id="reportDetailsTitle" tabindex="-1">Report details</h2><button type="button" id="closeDetails" class="secondary">Close</button></div><div id="reportDetailsBody"></div></section>
+  <footer>Fictional data · Synthetic model training · Report priorities use an illustrative weighted baseline.</footer>
+</main>
+</body>
+</html>

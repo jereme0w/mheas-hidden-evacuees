@@ -1,0 +1,32 @@
+[
+  {
+    "region_id": "central",
+    "shaking_intensity": 7,
+    "damage_level": 0.5
+  },
+  {
+    "region_id": "eastbank",
+    "shaking_intensity": 7.2,
+    "damage_level": 0.65
+  },
+  {
+    "region_id": "westbridge",
+    "shaking_intensity": 8.3,
+    "damage_level": 0.85
+  },
+  {
+    "region_id": "hillcrest",
+    "shaking_intensity": 6.1,
+    "damage_level": 0.35
+  },
+  {
+    "region_id": "industrial",
+    "shaking_intensity": 5.1,
+    "damage_level": 0.1
+  },
+  {
+    "region_id": "south_meadows",
+    "shaking_intensity": 5.5,
+    "damage_level": 0.15
+  }
+]

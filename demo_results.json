@@ -1,0 +1,116 @@
+[
+  {
+    "region_id": "central",
+    "region_name": "Central",
+    "model_version": "riverford-reporting-v1",
+    "training_source": "synthetic_only",
+    "alert": false,
+    "classification": "No silence alert",
+    "reports_received": 36,
+    "expected_reports": 43.82,
+    "expected_range_90": [
+      23,
+      69
+    ],
+    "shortfall": 7.82,
+    "damage_level": 0.5,
+    "lower_tail_probability": 0.32844145019188775,
+    "silence_threshold": 0.008333333333333333,
+    "reason": "Received 36 distinct household reports; expected approximately 43.8 with functioning reporting. This result does not establish that the area is safe."
+  },
+  {
+    "region_id": "eastbank",
+    "region_name": "Eastbank",
+    "model_version": "riverford-reporting-v1",
+    "training_source": "synthetic_only",
+    "alert": false,
+    "classification": "Monitor",
+    "reports_received": 18,
+    "expected_reports": 40.83,
+    "expected_range_90": [
+      21,
+      65
+    ],
+    "shortfall": 22.83,
+    "damage_level": 0.65,
+    "lower_tail_probability": 0.025125318953751804,
+    "silence_threshold": 0.008333333333333333,
+    "reason": "Received 18 distinct household reports; expected approximately 40.8 with functioning reporting. This result does not establish that the area is safe."
+  },
+  {
+    "region_id": "westbridge",
+    "region_name": "Westbridge",
+    "model_version": "riverford-reporting-v1",
+    "training_source": "synthetic_only",
+    "alert": true,
+    "classification": "Investigate",
+    "reports_received": 0,
+    "expected_reports": 67.57,
+    "expected_range_90": [
+      37,
+      105
+    ],
+    "shortfall": 67.57,
+    "damage_level": 0.85,
+    "lower_tail_probability": 1.2560448416588232e-10,
+    "silence_threshold": 0.008333333333333333,
+    "reason": "Received 0 distinct household reports; expected approximately 67.6 with functioning reporting. Substantial contextual damage and unusually low reporting warrant verification. A known communications disruption may explain the silence; it does not remove the visibility concern."
+  },
+  {
+    "region_id": "hillcrest",
+    "region_name": "Hillcrest",
+    "model_version": "riverford-reporting-v1",
+    "training_source": "synthetic_only",
+    "alert": false,
+    "classification": "No silence alert",
+    "reports_received": 4,
+    "expected_reports": 8.3,
+    "expected_range_90": [
+      3,
+      15
+    ],
+    "shortfall": 4.3,
+    "damage_level": 0.35,
+    "lower_tail_probability": 0.14882553916661947,
+    "silence_threshold": 0.008333333333333333,
+    "reason": "Received 4 distinct household reports; expected approximately 8.3 with functioning reporting. This result does not establish that the area is safe."
+  },
+  {
+    "region_id": "industrial",
+    "region_name": "Industrial",
+    "model_version": "riverford-reporting-v1",
+    "training_source": "synthetic_only",
+    "alert": false,
+    "classification": "No silence alert",
+    "reports_received": 0,
+    "expected_reports": 0.43,
+    "expected_range_90": [
+      0,
+      2
+    ],
+    "shortfall": 0.43,
+    "damage_level": 0.1,
+    "lower_tail_probability": 0.6569685185920989,
+    "silence_threshold": 0.008333333333333333,
+    "reason": "Received 0 distinct household reports; expected approximately 0.4 with functioning reporting. This result does not establish that the area is safe."
+  },
+  {
+    "region_id": "south_meadows",
+    "region_name": "South Meadows",
+    "model_version": "riverford-reporting-v1",
+    "training_source": "synthetic_only",
+    "alert": false,
+    "classification": "No silence alert",
+    "reports_received": 7,
+    "expected_reports": 2.6,
+    "expected_range_90": [
+      0,
+      6
+    ],
+    "shortfall": 0,
+    "damage_level": 0.15,
+    "lower_tail_probability": 0.988201296829033,
+    "silence_threshold": 0.008333333333333333,
+    "reason": "Received 7 distinct household reports; expected approximately 2.6 with functioning reporting. This result does not establish that the area is safe."
+  }
+]

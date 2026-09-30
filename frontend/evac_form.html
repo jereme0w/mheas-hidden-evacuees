@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Riverford Community Report</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f4f5f7;
+            color: #1f2328;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.4;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 430px;
+            margin: 0 auto;
+            padding: 20px 16px 40px;
+        }
+
+        header {
+            margin-bottom: 24px;
+        }
+
+        .brand {
+            color: #6b7280;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin: 0 0 8px;
+        }
+
+        .intro {
+            margin: 0;
+            color: #5f6670;
+            font-size: 0.95rem;
+        }
+
+        .notice {
+            margin-top: 14px;
+            padding: 12px;
+            border-left: 3px solid #8a919b;
+            background: #eef1f4;
+            color: #4b5563;
+            font-size: 0.85rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .section {
+            background: #ffffff;
+            border: 1px solid #d9dde3;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        fieldset {
+            border: 0;
+            padding: 0;
+            margin: 0;
+        }
+
+        legend,
+        .question {
+            display: block;
+            width: 100%;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .hint {
+            display: block;
+            color: #6b7280;
+            font-size: 0.82rem;
+            font-weight: normal;
+            margin-top: 4px;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .button-grid.three {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .button-grid.four {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .choice {
+            display: flex;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border: 1px solid #c7ccd3;
+            border-radius: 6px;
+            background: #f8f9fa;
+            color: #24292f;
+            text-align: center;
+            font-size: 0.9rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .choice:hover {
+            background: #eef1f4;
+        }
+
+        input:checked + .choice {
+            background: #2f343a;
+            border-color: #2f343a;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        input:focus-visible + .choice {
+            outline: 3px solid #7a828c;
+            outline-offset: 2px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            border: 1px solid #c7ccd3;
+            border-radius: 6px;
+            background: #ffffff;
+            color: #1f2328;
+            padding: 14px;
+            font: inherit;
+            font-size: 1rem;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: 2px solid #7a828c;
+            border-color: #6b7280;
+        }
+
+        .location-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .secondary-button {
+            width: 100%;
+            min-height: 44px;
+            background: #f4f5f7;
+            color: #24292f;
+            border: 1px solid #c7ccd3;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .secondary-button:hover {
+            background: #e8ebef;
+        }
+
+        .urgency-output {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .urgency-number {
+            font-size: 1.7rem;
+            font-weight: bold;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin: 6px 0;
+            accent-color: #444b54;
+        }
+
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
+            color: #6b7280;
+            font-size: 0.75rem;
+        }
+
+        .needs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .upload-box {
+            border: 1px dashed #aeb4bc;
+            border-radius: 6px;
+            padding: 20px 12px;
+            text-align: center;
+            color: #5f6670;
+        }
+
+        .upload-box input {
+            margin-top: 12px;
+            max-width: 100%;
+        }
+
+        .privacy {
+            color: #6b7280;
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+
+        .submit-button {
+            min-height: 54px;
+            border: 0;
+            border-radius: 7px;
+            background: #2f343a;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-button:disabled {
+            opacity: 0.65;
+            cursor: wait;
+        }
+
+        #status[data-state="error"] {
+            color: #8c2525;
+            border-color: #b84747;
+            background: #fff4f4;
+        }
+
+        .submit-button:hover {
+            background: #1f2328;
+        }
+
+        #status {
+            display: none;
+            padding: 14px;
+            background: #f3f5f7;
+            border: 1px solid #c7ccd3;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        @media (max-width: 360px) {
+            .button-grid.four {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .button-grid.three {
+                grid-template-columns: 1fr;
+            }
+
+            .needs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Riverford Community Report</h1>
+
+        <p class="intro">
+            Submit an example report for a fictional household in Riverford.
+        </p>
+
+        <div class="notice">
+            Fictional earthquake exercise. <span id="scenarioTime">Loading scenario...</span>
+        </div>
+    </header>
+
+
+    <form id="reportForm" action="/api/reports" method="post">
+
+        <!-- Reporter type -->
+        <section class="section">
+            <fieldset>
+                <legend>
+                    1. Who are you reporting for?
+                </legend>
+
+                <div class="button-grid three">
+
+                    <div>
+                        <input
+                            type="radio"
+                            id="report-myself"
+                            name="reporter_type"
+                            value="myself"
+                            required
+                        >
+                        <label class="choice" for="report-myself">
+                            Myself
+                        </label>
+                    </div>
+
+                    <div>
+                        <input
+                            type="radio"
+                            id="report-household"
+                            name="reporter_type"
+                            value="household"
+                        >
+                        <label class="choice" for="report-household">
+                            My household
+                        </label>
+                    </div>
+
+                    <div>
+                        <input
+                            type="radio"
+                            id="report-other"
+                            name="reporter_type"
+                            value="someone_else"
+                        >
+                        <label class="choice" for="report-other">
+                            Someone else
+                        </label>
+                    </div>
+
+                </div>
+            </fieldset>
+        </section>
+
+
+        <!-- Fictional region and household -->
+        <section class="section">
+            <label class="question" for="region_id">2. Which Riverford district?
+                <span class="hint">Choose the fictional district for this report.</span>
+            </label>
+            <select id="region_id" name="region_id" required>
+                <option value="">Choose a district</option>
+            </select>
+            <label class="question" for="household_number" style="margin-top:16px">Fictional household number
+                <span class="hint" id="householdHint">Choose a district first. Reuse the same number when updating a household.</span>
+            </label>
+            <input type="number" id="household_number" name="household_number" min="1" step="1" required disabled>
+        </section>
+
+
+        <!-- People affected -->
+        <section class="section">
+            <fieldset>
+
+                <legend>
+                    3. How many people are affected?
+                </legend>
+
+                <div class="button-grid four">
+
+                    <div>
+                        <input type="radio" id="people1"
+                               name="people_affected" value="1" required>
+                        <label class="choice" for="people1">1</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="people2"
+                               name="people_affected" value="2">
+                        <label class="choice" for="people2">2</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="people3"
+                               name="people_affected" value="3">
+                        <label class="choice" for="people3">3</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="people4"
+                               name="people_affected" value="4+">
+                        <label class="choice" for="people4">4+</label>
+                    </div>
+
+                </div>
+
+            </fieldset>
+        </section>
+
+
+        <!-- Immediate danger -->
+        <section class="section">
+            <fieldset>
+
+                <legend>
+                    4. Is anyone in immediate danger?
+                </legend>
+
+                <div class="button-grid">
+
+                    <div>
+                        <input type="radio" id="dangerYes"
+                               name="immediate_danger" value="yes" required>
+                        <label class="choice" for="dangerYes">
+                            Yes
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="dangerNo"
+                               name="immediate_danger" value="no">
+                        <label class="choice" for="dangerNo">
+                            No
+                        </label>
+                    </div>
+
+                </div>
+
+            </fieldset>
+        </section>
+
+
+        <!-- Urgency -->
+        <section class="section">
+
+            <label class="question" for="urgency">
+                5. How urgent is assistance?
+                <span class="hint">
+                    Your own assessment of how urgently help is needed.
+                </span>
+            </label>
+
+            <div class="urgency-output">
+                <span>Selected urgency</span>
+                <span class="urgency-number" id="urgencyValue">5</span>
+            </div>
+
+            <input
+                type="range"
+                id="urgency"
+                name="self_reported_urgency"
+                min="0"
+                max="10"
+                value="5"
+                step="1"
+            >
+
+            <div class="range-labels">
+                <span>0 — Not urgent</span>
+                <span>10 — Extremely urgent</span>
+            </div>
+
+        </section>
+
+
+        <!-- Needs -->
+        <section class="section">
+            <fieldset>
+
+                <legend>
+                    6. What help is needed?
+                    <span class="hint">
+                        Select all that apply.
+                    </span>
+                </legend>
+
+                <div class="needs-grid">
+
+                    <div>
+                        <input type="checkbox" id="rescue"
+                               name="needs" value="rescue_evacuation">
+                        <label class="choice" for="rescue">
+                            Rescue / Evacuation
+                        </label>
+                    </div>
+
+<div>
+                        <input type="checkbox" id="water"
+                               name="needs" value="water">
+                        <label class="choice" for="water">
+                            Water
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="shelterNeed"
+                               name="needs" value="shelter">
+                        <label class="choice" for="shelterNeed">
+                            Shelter
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="food"
+                               name="needs" value="food">
+                        <label class="choice" for="food">
+                            Food
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="sanitation"
+                               name="needs" value="sanitation">
+                        <label class="choice" for="sanitation">
+                            Sanitation
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="communication"
+                               name="needs" value="communication">
+                        <label class="choice" for="communication">
+                            Communication
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="electricity"
+                               name="needs" value="electricity">
+                        <label class="choice" for="electricity">
+                            Electricity
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="transport"
+                               name="needs" value="transport">
+                        <label class="choice" for="transport">
+                            Transport
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="otherNeed"
+                               name="needs" value="other">
+                        <label class="choice" for="otherNeed">
+                            Other
+                        </label>
+                    </div>
+
+                </div>
+
+            </fieldset>
+        </section>
+
+
+        <!-- Shelter -->
+        <section class="section">
+            <fieldset>
+
+                <legend>
+                    7. What is the current shelter situation?
+                </legend>
+
+                <div class="button-grid three">
+
+                    <div>
+                        <input type="radio" id="shelterSafe"
+                               name="shelter_status" value="safe" required>
+                        <label class="choice" for="shelterSafe">
+                            Safe
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="shelterUnsure"
+                               name="shelter_status" value="unsure">
+                        <label class="choice" for="shelterUnsure">
+                            Unsure
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="shelterUnsafe"
+                               name="shelter_status" value="unsafe">
+                        <label class="choice" for="shelterUnsafe">
+                            Unsafe
+                        </label>
+                    </div>
+
+                </div>
+
+            </fieldset>
+        </section>
+
+
+        <!-- Responder access -->
+        <section class="section">
+            <fieldset>
+
+                <legend>
+                    8. Can emergency responders reach this household?
+                </legend>
+
+                <div class="button-grid three">
+
+                    <div>
+                        <input type="radio" id="accessYes"
+                               name="responder_access" value="yes" required>
+                        <label class="choice" for="accessYes">
+                            Yes
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="accessUnsure"
+                               name="responder_access" value="unsure">
+                        <label class="choice" for="accessUnsure">
+                            Unsure
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="accessNo"
+                               name="responder_access" value="no">
+                        <label class="choice" for="accessNo">
+                            No
+                        </label>
+                    </div>
+
+                </div>
+
+            </fieldset>
+        </section>
+
+
+        <p class="privacy">Use fictional household numbers and scenario choices only.</p>
+
+        <button type="submit" class="submit-button" disabled>
+            Submit Report
+        </button>
+
+
+        <div id="status" role="status" aria-live="polite" tabindex="-1"></div>
+
+    </form>
+    <p class="hint"><a href="/dashboard">Open responder dashboard</a> · <a href="/api/regions" target="_blank" rel="noopener">View regional assessments (JSON)</a> · <a href="/api/reports" target="_blank" rel="noopener">View stored reports (JSON)</a></p>
+
+</div>
+
+
+<script src="/form.js" defer></script>
+
+</body>
+</html>
