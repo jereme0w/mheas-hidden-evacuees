@@ -2,7 +2,7 @@
 
 The fictional scenario uses a fixed demo snapshot. Real receipt timestamps are
 stored separately. Regional expectations are learned; report priority is a
-non-sensitive weighted baseline. This app writes riverford_reports.sqlite3.
+paper-aligned weighted priority model. This app writes riverford_reports.sqlite3.
 """
 import argparse
 from contextlib import closing
@@ -21,7 +21,7 @@ from riverford_service import assess, demo_records, load_scenario, parse_time, s
 
 PROJECT_DIR = Path(__file__).resolve().parents[1]
 TABLE = "riverford_reports"
-APP_VERSION = "riverford-dashboard-2026-10-01.4"
+APP_VERSION = "riverford-paper-aligned-2026-10-10.1"
 
 
 def _connection(database):
@@ -222,7 +222,7 @@ def create_app(config=None):
             payload = {}
             for key in request.form:
                 values = request.form.getlist(key)
-                if key in ("needs", "primary_needs"):
+                if key in ("needs", "primary_needs", "high_risk_vulnerabilities"):
                     payload[key] = values
                 elif len(values) == 1:
                     payload[key] = values[0]

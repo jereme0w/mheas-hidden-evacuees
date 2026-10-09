@@ -10,6 +10,8 @@
         "people_affected": "1",
         "immediate_danger": "no",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
+        "high_risk_vulnerabilities": [],
         "primary_needs": [
           "food"
         ],
@@ -17,7 +19,7 @@
         "responder_access": "yes"
       },
       "priority": "Low",
-      "score": 1.935
+      "score": 1.617
     },
     {
       "name": "Moderate access and supply need",
@@ -28,6 +30,8 @@
         "people_affected": "3",
         "immediate_danger": "no",
         "self_reported_urgency": 8,
+        "vulnerability_count": 0,
+        "high_risk_vulnerabilities": [],
         "primary_needs": [
           "water"
         ],
@@ -35,7 +39,7 @@
         "responder_access": "unsure"
       },
       "priority": "Moderate",
-      "score": 4.247
+      "score": 3.19
     },
     {
       "name": "High immediate danger",
@@ -46,6 +50,8 @@
         "people_affected": "2",
         "immediate_danger": "yes",
         "self_reported_urgency": 8,
+        "vulnerability_count": 2,
+        "high_risk_vulnerabilities": [],
         "primary_needs": [
           "water"
         ],
@@ -53,7 +59,7 @@
         "responder_access": "unsure"
       },
       "priority": "High",
-      "score": 7.472
+      "score": 7.132
     },
     {
       "name": "Critical rescue in severe damage",
@@ -64,6 +70,8 @@
         "people_affected": "4+",
         "immediate_danger": "yes",
         "self_reported_urgency": 10,
+        "vulnerability_count": 3,
+        "high_risk_vulnerabilities": [],
         "primary_needs": [
           "rescue_evacuation"
         ],
@@ -71,7 +79,7 @@
         "responder_access": "no"
       },
       "priority": "Critical",
-      "score": 10.0
+      "score": 9.46
     }
   ],
   "invalid": [
@@ -84,6 +92,7 @@
         "people_affected": "1",
         "immediate_danger": "no",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
         "primary_needs": [
           "food"
         ],
@@ -101,6 +110,7 @@
         "people_affected": "1",
         "immediate_danger": "no",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
         "primary_needs": [
           "food"
         ],
@@ -118,6 +128,7 @@
         "people_affected": "1",
         "immediate_danger": "no",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
         "primary_needs": [
           "food"
         ],
@@ -135,6 +146,7 @@
         "people_affected": "1",
         "immediate_danger": "no",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
         "primary_needs": [
           "food"
         ],
@@ -152,6 +164,7 @@
         "people_affected": "1",
         "immediate_danger": "no",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
         "primary_needs": [
           "food"
         ],
@@ -169,6 +182,7 @@
         "people_affected": "1",
         "immediate_danger": "no",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
         "primary_needs": [],
         "shelter_status": "safe",
         "responder_access": "yes"
@@ -184,6 +198,7 @@
         "people_affected": "1",
         "immediate_danger": "no",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
         "primary_needs": "food",
         "shelter_status": "safe",
         "responder_access": "yes"
@@ -199,8 +214,9 @@
         "people_affected": "1",
         "immediate_danger": "no",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
         "primary_needs": [
-          "medical"
+          "unknown_need"
         ],
         "shelter_status": "safe",
         "responder_access": "yes"
@@ -216,6 +232,7 @@
         "people_affected": 0,
         "immediate_danger": "no",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
         "primary_needs": [
           "food"
         ],
@@ -233,6 +250,7 @@
         "people_affected": 1.5,
         "immediate_danger": "no",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
         "primary_needs": [
           "food"
         ],
@@ -250,6 +268,7 @@
         "people_affected": "1",
         "immediate_danger": "no",
         "self_reported_urgency": 11,
+        "vulnerability_count": 0,
         "primary_needs": [
           "food"
         ],
@@ -267,6 +286,7 @@
         "people_affected": "1",
         "immediate_danger": "maybe",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
         "primary_needs": [
           "food"
         ],
@@ -284,6 +304,7 @@
         "people_affected": "1",
         "immediate_danger": "no",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
         "primary_needs": [
           "food"
         ],
@@ -301,6 +322,7 @@
         "people_affected": "1",
         "immediate_danger": "no",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
         "primary_needs": [
           "food"
         ],
@@ -310,7 +332,7 @@
       "status": 422
     },
     {
-      "name": "Sensitive field",
+      "name": "Unsupported field",
       "payload": {
         "region_id": "central",
         "household_number": 100,
@@ -318,12 +340,13 @@
         "people_affected": "1",
         "immediate_danger": "no",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
         "primary_needs": [
           "food"
         ],
         "shelter_status": "safe",
         "responder_access": "yes",
-        "vulnerability_factors": []
+        "exact_age": 70
       },
       "status": 422
     },
@@ -336,6 +359,7 @@
         "people_affected": "1",
         "immediate_danger": "no",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
         "primary_needs": [
           "food"
         ],
@@ -354,6 +378,7 @@
         "people_affected": "1",
         "immediate_danger": "no",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
         "primary_needs": [
           "food"
         ],
@@ -372,6 +397,7 @@
         "people_affected": "1",
         "immediate_danger": "no",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
         "primary_needs": [
           "food"
         ],
@@ -392,12 +418,74 @@
         "people_affected": "1",
         "immediate_danger": "no",
         "self_reported_urgency": 0,
+        "vulnerability_count": 0,
         "primary_needs": [
           "food"
         ],
         "shelter_status": "safe",
         "responder_access": "yes",
         "urgency": 2
+      },
+      "status": 422
+    },
+    {
+      "name": "Negative vulnerability count",
+      "payload": {
+        "region_id": "central",
+        "household_number": 100,
+        "reporter_type": "household",
+        "people_affected": "1",
+        "immediate_danger": "no",
+        "self_reported_urgency": 0,
+        "vulnerability_count": -1,
+        "high_risk_vulnerabilities": [],
+        "primary_needs": [
+          "food"
+        ],
+        "shelter_status": "safe",
+        "responder_access": "yes"
+      },
+      "status": 422
+    },
+    {
+      "name": "Unknown high-risk vulnerability",
+      "payload": {
+        "region_id": "central",
+        "household_number": 100,
+        "reporter_type": "household",
+        "people_affected": "1",
+        "immediate_danger": "no",
+        "self_reported_urgency": 0,
+        "vulnerability_count": 1,
+        "high_risk_vulnerabilities": [
+          "unknown"
+        ],
+        "primary_needs": [
+          "food"
+        ],
+        "shelter_status": "safe",
+        "responder_access": "yes"
+      },
+      "status": 422
+    },
+    {
+      "name": "High-risk count inconsistency",
+      "payload": {
+        "region_id": "central",
+        "household_number": 100,
+        "reporter_type": "household",
+        "people_affected": "1",
+        "immediate_danger": "no",
+        "self_reported_urgency": 0,
+        "vulnerability_count": 0,
+        "high_risk_vulnerabilities": [
+          "injury"
+        ],
+        "primary_needs": [
+          "food"
+        ],
+        "shelter_status": "safe",
+        "responder_access": "yes"
       },
       "status": 422
     }

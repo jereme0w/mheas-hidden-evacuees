@@ -7,7 +7,7 @@ let lastUpdated = null;
 let loading = false;
 const colours = { investigate: "#f9deda", monitor: "#ffedc9", clear: "#e3edf5", unknown: "#e9eef1" };
 const number = value => Number.isFinite(value) ? value.toLocaleString(undefined, { maximumFractionDigits: 1 }) : "Unavailable";
-const statusClass = row => row.alert ? "investigate" : row.classification === "Monitor" ? "monitor" : row.classification === "No silence alert" ? "clear" : "unknown";
+const statusClass = row => row.alert ? "investigate" : row.classification === "Monitor" ? "monitor" : row.classification === "No alert" ? "clear" : "unknown";
 const countKnown = row => row.classification !== "Insufficient data";
 const node = (tag, text, className) => {
     const item = document.createElement(tag);
@@ -43,7 +43,7 @@ function renderMap() {
     const legend = byId("mapLegend"); legend.replaceChildren();
     const entries = damageLayer
         ? [["#e8f0f3", "Index below 30"], ["#fde6b7", "Index 30–59"], ["#f8b4a7", "Index 60–100"]]
-        : [[colours.investigate, "Investigate"], [colours.monitor, "Monitor"], [colours.clear, "No silence alert"], [colours.unknown, "Review / unavailable"]];
+        : [[colours.investigate, "Investigate"], [colours.monitor, "Monitor"], [colours.clear, "No alert"], [colours.unknown, "Review / unavailable"]];
     for (const [colour, text] of entries) {
         const label = node("span"); const swatch = node("i", undefined, "swatch");
         swatch.style.backgroundColor = colour; label.append(swatch, node("span", text)); legend.append(label);
@@ -135,9 +135,11 @@ function showReport(record) {
         addContext(list, "Self-reported urgency", report.urgency + " / 10");
         addContext(list, "Reporter type", report.reporter_type || "unspecified");
         addContext(list, "Immediate danger", report.immediate_danger ? "Yes" : "No");
+        addContext(list, "Vulnerability factors", number(report.vulnerability_count));
+        addContext(list, "High-risk vulnerability", report.high_risk_vulnerabilities?.length ? report.high_risk_vulnerabilities.join(", ") : "None reported");
         addContext(list, "Help requested", report.needs.join(", "));
         addContext(list, "Shelter / responder access", `${report.shelter_status} / ${report.responder_access}`);
-        addContext(list, "Report priority", `${record.priority.priority} · ${number(record.priority.score)} / 10`);
+        addContext(list, "Report priority", `${record.priority.priority} · ${number(record.priority.score)} / 9.51`);
         addContext(list, "Priority method", "Illustrative weighted baseline");
         addContext(list, record.source === "synthetic_community_report" ? "Demo snapshot time" : "Real receipt time", record.created_at);
     }

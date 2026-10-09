@@ -3,7 +3,7 @@
   "regions": {
     "central": {
       "count": 36,
-      "classification": "No silence alert"
+      "classification": "No alert"
     },
     "eastbank": {
       "count": 18,
@@ -15,15 +15,15 @@
     },
     "hillcrest": {
       "count": 4,
-      "classification": "No silence alert"
+      "classification": "No alert"
     },
     "industrial": {
       "count": 0,
-      "classification": "No silence alert"
+      "classification": "No alert"
     },
     "south_meadows": {
       "count": 7,
-      "classification": "No silence alert"
+      "classification": "No alert"
     }
   }
 }

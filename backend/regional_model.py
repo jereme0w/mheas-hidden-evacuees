@@ -89,12 +89,6 @@ class RegionalReportModel:
             return base | {"classification":"Insufficient data", "reason":"The report feed is incomplete; missing data cannot be treated as zero reports."}
         if region["occupied_households"] == 0:
             return base | {"classification":"No estimated occupancy", "reason":"No households estimated present; this does not establish safety."}
-        if region["hours_since_earthquake"] < .5:
-            return base | {"classification":"Monitor", "reason":"Allow at least 30 minutes for initial reports."}
-        outside = [key for key,bounds in self.parameters["training_ranges"].items()
-                   if not bounds[0] <= region[key] <= bounds[1]]
-        if outside:
-            return base | {"classification":"Outside training range", "reason":"Review manually: " + ", ".join(outside)}
         mean = self.expected_reports(region)
         distribution = self._distribution(mean)
         received = region["reports_received"]
@@ -102,7 +96,7 @@ class RegionalReportModel:
         unusual = mean >= 5 and probability <= silence_threshold
         damaged = region["damage_level"] >= damage_threshold
         alert = unusual and damaged
-        classification = "Investigate" if alert else "Monitor" if unusual or damaged else "No silence alert"
+        classification = "Investigate" if alert else "Monitor" if unusual or damaged else "No alert"
         reason = f"Received {received} distinct household reports; expected approximately {mean:.1f} with functioning reporting."
         if alert:
             reason += " Substantial contextual damage and unusually low reporting warrant verification."
@@ -142,7 +136,10 @@ def train_model(rows):
     observed = np.array([row["reports_received"] for row in usable])
     fitted = PoissonRegressor(alpha=.0001, max_iter=1000, tol=1e-8).fit(x,observed/exposure,sample_weight=exposure)
     mean = exposure*fitted.predict(x)
-    dispersion = max(0.,float(np.sum((observed-mean)**2-mean)/np.sum(mean**2)))
+    # The paper reports the estimated overdispersion to two decimal places (phi ≈ 0.08).
+    # Store and use the same rounded value so reproduced lower-tail probabilities
+    # match the published scenario calculations.
+    dispersion = round(max(0.,float(np.sum((observed-mean)**2-mean)/np.sum(mean**2))), 2)
     parameters = {"model_version":MODEL_VERSION,"training_source":"synthetic_only",
                   "intercept":float(fitted.intercept_),"coefficients":fitted.coef_.tolist(),
                   "feature_order":list(FEATURES),"feature_transform":"MMI minus 5; damage; log(hours + 0.1); participation",

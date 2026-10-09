@@ -26,7 +26,7 @@ async function setup(post, contextOK = true, url = "http://127.0.0.1:5000/") {
     doc.getElementById("region_id").value = "westbridge";
     doc.getElementById("region_id").dispatchEvent(new window.Event("change"));
     doc.getElementById("household_number").value = "1";
-    for (const id of ["report-household", "people4", "dangerYes", "water", "rescue", "shelterUnsafe", "accessNo"]) {
+    for (const id of ["report-household", "people4", "dangerYes", "vulnerability3", "limitedMobility", "water", "rescue", "shelterUnsafe", "accessNo"]) {
         doc.getElementById(id).checked = true;
     }
     const submit = () => doc.getElementById("reportForm").dispatchEvent(new window.Event("submit", { cancelable: true }));
@@ -39,8 +39,9 @@ test("district options and household limits come from backend context", async ()
     assert.equal(doc.getElementById("household_number").max, "1680");
     assert.match(doc.getElementById("scenarioTime").textContent, /2 hours/);
     assert.equal(doc.querySelector('button[type="submit"]').disabled, false);
-    assert.equal(doc.getElementById("medical"), null);
-    assert.equal(doc.querySelector('[name="vulnerability"]'), null);
+    assert.notEqual(doc.getElementById("medical"), null);
+    assert.notEqual(doc.querySelector('[name="vulnerability_count"]'), null);
+    assert.notEqual(doc.querySelector('[name="high_risk_vulnerabilities"]'), null);
     dom.window.close();
 });
 
@@ -53,6 +54,8 @@ test("valid submission preserves checkbox arrays and shows receipt only", async 
     assert.equal(calls[0].payload.region_id, "westbridge");
     assert.equal(calls[0].payload.household_number, "1");
     assert.equal(calls[0].payload.people_affected, "4+");
+    assert.equal(calls[0].payload.vulnerability_count, "3+");
+    assert.deepEqual(calls[0].payload.high_risk_vulnerabilities, ["limited_mobility"]);
     assert.equal(doc.getElementById("status").dataset.state, "success");
     assert.match(doc.getElementById("status").textContent, /Reference: example-001/);
     assert.equal(doc.getElementById("water").checked, true);

@@ -7,6 +7,7 @@ from pathlib import Path
 
 from contextual_prioritisation_model import (
     AreaContext, CommunityReport, evaluate_city_snapshot, prioritise_report, NEED_SCORES,
+    HIGH_RISK_VULNERABILITIES,
 )
 from demo_regions import load_regions
 
@@ -58,6 +59,8 @@ def community_report(record):
         people_affected=values["people_affected"], immediate_danger=values["immediate_danger"],
         urgency=values["urgency"], needs=values["needs"],
         shelter_status=values["shelter_status"], responder_access=values["responder_access"],
+        vulnerability_count=values["vulnerability_count"],
+        high_risk_vulnerabilities=values["high_risk_vulnerabilities"],
     )
 
 
@@ -91,7 +94,8 @@ def _integer(value, name, minimum=0, maximum=None):
 
 def normalise_report(payload, scenario):
     allowed = {"region_id", "household_number", "reporter_type", "people_affected", "immediate_danger",
-               "self_reported_urgency", "urgency", "primary_needs", "needs", "shelter_status", "responder_access"}
+               "self_reported_urgency", "urgency", "vulnerability_count", "high_risk_vulnerabilities",
+               "primary_needs", "needs", "shelter_status", "responder_access"}
     unknown = sorted(set(payload)-allowed)
     if unknown:
         raise ValueError("Unsupported fields: " + ", ".join(unknown))
@@ -111,6 +115,18 @@ def normalise_report(payload, scenario):
     if "urgency" in payload and "self_reported_urgency" in payload:
         raise ValueError("Provide urgency or self_reported_urgency, not both")
     urgency = _integer(payload.get("self_reported_urgency", payload.get("urgency")), "urgency", maximum=10)
+    vulnerability_raw = payload.get("vulnerability_count")
+    if vulnerability_raw == "3+":
+        vulnerability_raw = 3
+    vulnerability_count = _integer(vulnerability_raw, "vulnerability_count", 0)
+    high_risk = payload.get("high_risk_vulnerabilities", [])
+    if not isinstance(high_risk, list) or any(not isinstance(value, str) for value in high_risk):
+        raise ValueError("high_risk_vulnerabilities must be a list")
+    high_risk = list(dict.fromkeys(value.strip().lower() for value in high_risk))
+    if any(value not in HIGH_RISK_VULNERABILITIES for value in high_risk):
+        raise ValueError("Unknown high-risk vulnerability category")
+    if vulnerability_count < len(high_risk):
+        raise ValueError("vulnerability_count cannot be lower than the number of high-risk vulnerabilities")
     people = payload.get("people_affected")
     people = 4 if people == "4+" else _integer(people, "people_affected", 1)
     danger = payload.get("immediate_danger")
@@ -128,6 +144,7 @@ def normalise_report(payload, scenario):
     return {"region_id": region_id, "household_id": f"fictional-{region_id}-household-{household_number:04d}",
             "household_number": household_number, "reporter_type": reporter_type,
             "people_affected": people, "immediate_danger": danger, "urgency": urgency,
+            "vulnerability_count": vulnerability_count, "high_risk_vulnerabilities": high_risk,
             "needs": needs, "shelter_status": shelter, "responder_access": access}
 
 

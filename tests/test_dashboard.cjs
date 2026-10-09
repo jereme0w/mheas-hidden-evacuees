@@ -62,7 +62,7 @@ test("scored demo reports are visible by default and can be filtered by district
 
 test("a form report can be inspected and filtered by priority", async () => {
     const data = clone(fixture);
-    data.reports.push({ report_id: "form-1", region_id: "westbridge", household_id: "fictional-westbridge-household-0001", source: "fictional_community_form", verification_status: "unverified", submitted_at: data.assessment_time, created_at: "2026-10-01T04:00:00+00:00", priority: { priority: "Critical", score: 9.1 }, model_report: { people_affected: 4, immediate_danger: true, urgency: 10, needs: ["water"], shelter_status: "unsafe", responder_access: "no" } });
+    data.reports.push({ report_id: "form-1", region_id: "westbridge", household_id: "fictional-westbridge-household-0001", source: "fictional_community_form", verification_status: "unverified", submitted_at: data.assessment_time, created_at: "2026-10-01T04:00:00+00:00", priority: { priority: "Critical", score: 9.1 }, model_report: { people_affected: 4, immediate_danger: true, urgency: 10, vulnerability_count: 3, high_risk_vulnerabilities: [], needs: ["water"], shelter_status: "unsafe", responder_access: "no" } });
     const { dom, doc } = await setup(data);
     assert.match(doc.getElementById("reportRows").textContent, /Critical/);
     doc.getElementById("reportDistrict").value = "westbridge";

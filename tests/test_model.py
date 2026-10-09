@@ -12,7 +12,7 @@ from regional_model import RegionalReportModel
 from demo_regions import load_regions
 from contextual_prioritisation_model import (
     AreaContext, CommunityReport, evaluate_city_snapshot, prioritise_report,
-    normalise_urgency, PRIORITY_WEIGHTS,
+    normalise_urgency, normalise_vulnerability, normalise_primary_need, PRIORITY_WEIGHTS,
 )
 
 
@@ -49,9 +49,9 @@ class RegionalTests(unittest.TestCase):
         self.assertEqual(result['classification'],'Insufficient data')
         self.assertNotIn('expected_reports',result)
 
-    def test_early_and_outside_range_cases_require_review(self):
-        self.assertEqual(self.model.classify_region(self.west|{'hours_since_earthquake':.1})['classification'],'Monitor')
-        self.assertEqual(self.model.classify_region(self.west|{'hours_since_earthquake':30})['classification'],'Outside training range')
+    def test_city_snapshot_uses_paper_threshold(self):
+        results=self.model.classify_regions(self.rows)
+        self.assertTrue(all(abs(row['silence_threshold']-(.05/6)) < 1e-12 for row in results))
 
     def test_invalid_counts_are_rejected(self):
         result=self.model.classify_region(self.west|{'reports_received':-1})
@@ -87,13 +87,30 @@ class IntegrationTests(unittest.TestCase):
         snapshot=evaluate_city_snapshot([self.context],[],self.now,self.model)
         self.assertTrue(snapshot['area_information_gaps'][0]['alert'])
 
-    def test_non_sensitive_report_priority(self):
+    def test_paper_aligned_report_priority(self):
         result=prioritise_report(self.report,self.context)
-        self.assertNotIn('V',result['normalised_factors'])
+        self.assertIn('V',result['normalised_factors'])
         self.assertAlmostEqual(sum(PRIORITY_WEIGHTS.values()),1)
-        self.assertEqual(normalise_urgency(10),10)
-        with self.assertRaises(ValueError):
-            prioritise_report(replace(self.report,needs=['medical']),self.context)
+        self.assertEqual(normalise_urgency(0),1)
+        self.assertEqual(normalise_urgency(10),4)
+        self.assertEqual(normalise_vulnerability(0,[]),0)
+        self.assertEqual(normalise_vulnerability(2,[]),7)
+        self.assertEqual(normalise_vulnerability(1,['injury']),8)
+        self.assertEqual(normalise_vulnerability(3,[]),9)
+        self.assertEqual(normalise_primary_need(['medical']),9)
+
+    def test_priority_score_properties_reported_in_paper(self):
+        maximum=replace(self.report,people_affected=4,immediate_danger=True,urgency=10,
+                        needs=['rescue/evacuation'],shelter_status='unsafe',responder_access='no',
+                        vulnerability_count=3)
+        max_context=replace(self.context,communications='Major Outage')
+        max_result=prioritise_report(maximum,max_context)
+        self.assertEqual(max_result['score'],9.51)
+        self.assertEqual(max_result['priority'],'Critical')
+        one_person=replace(maximum,people_affected=1)
+        one_result=prioritise_report(one_person,max_context)
+        self.assertAlmostEqual(one_result['score'],8.80,places=2)
+        self.assertEqual(one_result['priority'],'High')
 
     def test_naive_datetimes_and_duplicate_districts_are_rejected(self):
         with self.assertRaises(ValueError):

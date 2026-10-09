@@ -1,278 +1,151 @@
-# CS789: merged Riverford reporting prototype
+# Hidden Evacuees in Post-Disaster Response
 
-The reporting form, Flask API and learned regional model now run together.
-All supplied scenario data is fictional. The active form contains no health,
-age, medication, vulnerability, personal name, real address, coordinates,
-free-text notes or photo fields.
+This repository contains the research prototype and supplementary materials accompanying the AISS 2026 paper **“When Technology Cannot See Everyone: Hidden Evacuees in Post-Disaster Response.”**
 
-## Fixing a persistent `/api/regions` 404
+The prototype combines a fictional community reporting form, an interpretable household report-priority model, a learned regional visibility model, a Flask API, and a lightweight responder dashboard. All Riverford scenario data and reports are synthetic and fictional.
 
-The source in this package has the regions route. A 404 on port 5000 means
-that URL is being handled by a different or stale app instance. Launch this
-copy on a separate port to remove that ambiguity:
+## Repository contents
 
-```powershell
-python backend/app.py --seed-demo --port 5001
-```
+- `backend/` — household priority model, regional visibility model, Flask API, and model-training utilities.
+- `frontend/` — fictional community reporting form and responder dashboard.
+- `datasets/riverford/` — six-district Riverford scenario inputs and 65 synthetic household reports.
+- `datasets/training_reports.csv` — synthetic regional reporting data used to fit and evaluate the regional model.
+- `models/` — fitted regional model parameters and held-out synthetic evaluation metrics.
+- `tests/` — model, API, form, persistence, and dashboard checks.
+- `literature/retained_sources_101.csv` — bibliographic list of the 101 sources retained in the structured literature review.
+- `MODEL_README.md` — detailed description of the two model pathways and their limitations.
 
-Open **http://127.0.0.1:5001/api/regions**, using port **5001**, not 5000.
-Alternatively, run `run_riverford.bat` from the extracted project folder.
-The launcher changes to its own folder and uses port 5001.
+## Quick start
 
-http://127.0.0.1:5001/api/version should return version
-`riverford-dashboard-2026-10-01.3`. Startup also prints the absolute backend file path.
-If a port is occupied, the command reports that conflict rather than implying
-it replaced the existing server. Stop that server or choose another port.
-
-The SQLite test cleanup defect is corrected: connections are explicitly
-closed while retaining transaction commit/rollback handling. Every API test
-now tracks all its SQLite connections and checks closure before temporary
-files are removed. This detects leaked handles even on platforms that allow
-an open SQLite file to be deleted. Expected failure tests may still print
-`Report transaction failed` followed by `ok`.
-
-## Visual dashboard
-
-After starting the app, open **http://127.0.0.1:5001/dashboard** when using
-`run_riverford.bat` or `--port 5001`. On the default port, use
-http://127.0.0.1:5000/dashboard. The reporting form at `/` links to it.
-Restart the running server after copying these files.
-
-The dashboard uses one `/api/dashboard` snapshot backed by the current SQLite
-reports and model assessment. It includes:
-
-- A clickable, keyboard-accessible SVG map of all six fictional districts.
-- Visibility-assessment and assessed-damage-index map layers.
-- Received-versus-expected household report bars and 90% predictive ranges.
-- A selected-district panel with population, occupancy, impact, infrastructure,
-  communications and reporting-feed context.
-- A review queue, ordered with visibility alerts first.
-- Community reports filtered by district and weighted report priority, with
-  detailed records and links to saved JSON.
-- A Refresh data button for updating the display after new submissions.
-
-The map is a fictional schematic, not surveyed geography. It uses no external
-map service or subscription. Damage is shown as a normalised index out of 100,
-not as a measured percentage of buildings damaged. Population and occupancy
-provide context; report priority and regional visibility are distinct assessments.
-
-The initial seeded view selects Westbridge and shows its silent, heavily
-impacted district. All 65 seeded reports contain complete fictional form answers,
-are scored through the same validation and priority calculation as the form,
-and appear in the table by default as Fictional demo report.
-
-Unavailable reporting feeds are labelled Unknown/Partial data, not presented
-as zero reports. Failed refreshes clearly mark retained results as stale.
-The dashboard remains a fixed two-hour fictional snapshot; refreshing fetches
-new submissions but does not advance the scenario clock. Only manual refresh
-is enabled; there are no timed polling loops or external data requests.
-
-Dashboard files: `frontend/dashboard.html`, `frontend/dashboard.css`,
-`frontend/dashboard.js`, and the routes in `backend/app.py`.
-`tests/test_dashboard.py` adds six API tests. `tests/test_dashboard.cjs` adds
-eight DOM behaviour tests, backed by `tests/cases/dashboard_snapshot.json`.
-Together with the existing suites, 41 Python tests and 17 form/dashboard tests
-passed in bounded functional runs. The DOM tests use jsdom, not a full browser
-visual-rendering test. No model retraining was needed for this dashboard.
-
-## Run in VS Code
-
-Extract the ZIP and open its `cs789` folder in VS Code. In a terminal in that
-folder, use Python 3.10 or later:
+Use Python 3.10 or later from the repository root:
 
 ```powershell
 python -m pip install -r requirements.txt
 python backend/app.py --seed-demo
 ```
 
-Open **http://127.0.0.1:5000**. Open the form through Flask, rather than opening
-the HTML directly from the file tree. Stop the server with Ctrl+C.
+Then open:
 
-`--seed-demo` imports the 65 complete fictional reporting-household assessments. Repeating
-it is safe: it does not duplicate those fixture rows. Omitting the flag starts
-with whichever reports already exist in the new database; for a fresh database
-this means zero reports, not the 65-report example.
+- Community reporting form: `http://127.0.0.1:5000/`
+- Responder dashboard: `http://127.0.0.1:5000/dashboard`
+- Regional assessment JSON: `http://127.0.0.1:5000/api/regions`
+- Stored report JSON: `http://127.0.0.1:5000/api/reports`
 
-For an isolated environment on Windows, without activating PowerShell scripts:
+The `--seed-demo` option loads the 65 complete fictional Riverford reports. Re-running it does not duplicate the seeded records.
 
-```powershell
-py -m venv .venv
-.\.venv\Scripts\python -m pip install -r requirements.txt
-.\.venv\Scripts\python backend/app.py --seed-demo
+The application creates `data/riverford_reports.sqlite3` locally when it runs. Runtime database files are not part of the archived research release.
+
+## Household report-priority model
+
+The implementation follows Table 3 and Eq. (1) of the accompanying paper. The score is a weighted sum of nine normalised factors:
+
+| Factor | Weight |
+|---|---:|
+| People affected (P) | 0.095 |
+| Immediate danger (D) | 0.285 |
+| Self-reported urgency (U) | 0.050 |
+| Vulnerability (V) | 0.190 |
+| Need severity (N) | 0.1425 |
+| Responder access (A) | 0.1425 |
+| Hazard intensity (Q) | 0.040 |
+| Infrastructure disruption (I) | 0.035 |
+| Communications disruption (C) | 0.020 |
+
+Self-reported urgency is compressed from the form's 0–10 input to the paper's 1–4 model scale: 0–2 → 1, 3–5 → 2, 6–8 → 3, and 9–10 → 4. Vulnerability is scored as 0, 5, 7, or 9 for none, one, two, or three-or-more factors; injury, medication dependency, or limited mobility raises the vulnerability score to at least 8. Need severity is the maximum of the reported-need and shelter-condition values.
+
+Priority categories are **Low** for scores below 3, **Moderate** for 3 to below 7, **High** for 7 to below 9, and **Critical** for 9 or above. Under the published mappings and weights, the maximum attainable score is 9.51. A one-person household can reach at most 8.80.
+
+The 65 synthetic Riverford reports reproduce the paper's stated priority distribution:
+
+| Priority | Reports |
+|---|---:|
+| Low | 28 |
+| Moderate | 20 |
+| High | 7 |
+| Critical | 10 |
+| **Total** | **65** |
+
+These expected categories are produced from the same predefined rules used by the implementation. Agreement therefore checks implementation consistency only; it is not independent validation of the priority model.
+
+## Regional visibility model
+
+For district `r`, expected reporting is:
+
+```text
+E_r = H_r × p_hat_r
 ```
 
-The app listens on localhost. To use another port:
+where `H_r` is estimated occupied households and `p_hat_r` is the context-adjusted expected reporting rate. The fitted Riverford demonstration uses:
 
-```powershell
-python backend/app.py --seed-demo --port 5001
+```text
+p_hat_r = exp[-6.8295
+              + 0.4097(M_r - 5)
+              + 0.9635 K_r
+              + 0.5451 ln(T_r + 0.1)
+              + 1.3010 R_r]
 ```
 
-## How submissions and assessments work
+The coefficients were fitted to synthetic functioning-reporting scenarios rather than empirical disaster data. Communications disruption is deliberately excluded from the expected-count calculation so that an outage does not lower the reference level against which reporting silence is assessed.
 
-1. The form loads Riverford districts from `/api/context`.
-2. Choose a district and a fictional household number. Reuse the same number
-   for updates to that household. Numbers range from 1 to that district's
-   estimated occupied-household count.
-3. Select report details and submit. The backend translates the form into
-   `CommunityReport`, obtains `AreaContext` from its datasets, and scores it.
-4. In one SQLite transaction, the backend saves the report, computes the city
-   assessment including that report, and stores its regional result. The form
-   confirms receipt only after commit.
+Observed reporting counts distinct fictional households once per city snapshot. The shortfall is `max(E_r - O_r, 0)`. Lower-tail probabilities use a negative-binomial predictive distribution with estimated overdispersion approximately 0.08.
 
-Distinct households determine the regional count. Repeated submissions remain
-available as history and receive new report scores, but do not add households.
-The report scorer's `4+` option is normalised to 4 for its capped group-size
-factor; it is not an exact population count.
+For a city snapshot containing `n` districts, reporting is unusually low when `E_r >= 5` and the lower-tail probability is at most `0.05/n`. Substantial damage is `K_r >= 0.6`. A district is classified **Investigate** when both conditions hold, **Monitor** when either holds, and **No alert** otherwise.
 
-Individual report priority remains a transparent weighted baseline. Regional
-reporting expectations are learned from occupancy, shaking, assessed damage,
-elapsed time and normal-condition reporting participation. The model flags
-unusually low reporting combined with substantial assessed damage. A known
-communications disruption explains low visibility without lowering the
-normal-condition reference until silence appears normal.
+For the supplied six-district Riverford snapshot:
 
-The API rejects unsupported fields and health-related need categories. Context
-is supplied by the backend; form users cannot override shaking, damage,
-participation or earthquake timing.
+| District | Occupied households | Expected | Observed | Shortfall | Assessment |
+|---|---:|---:|---:|---:|---|
+| Central | 2600 | 43.82 | 36 | 7.82 | No alert |
+| Eastbank | 2200 | 40.83 | 18 | 22.83 | Monitor |
+| Westbridge | 1680 | 67.57 | 0 | 67.57 | Investigate |
+| Hillcrest | 1000 | 8.30 | 4 | 4.30 | No alert |
+| Industrial | 120 | 0.43 | 0 | 0.43 | No alert |
+| South Meadows | 400 | 2.60 | 7 | 0.00 | No alert |
 
-## Inspect reports and regional alerts
+A regional reporting shortfall is an information-visibility signal, not an estimate of hidden people or unmet need. A **No alert** result does not establish safety.
 
-While the server is running:
+## Synthetic training and evaluation
 
-| Address | Contents |
-|---|---|
-| http://127.0.0.1:5000/api/context | Scenario clock and fictional district population/occupancy |
-| http://127.0.0.1:5000/api/regions | Current regional assessments, count expectations, intervals and alerts |
-| http://127.0.0.1:5000/api/reports | Stored reports for the current fictional event |
-| `http://127.0.0.1:5000/api/reports/<report_id>` | One stored report and its submission-time assessment |
+`datasets/training_reports.csv` contains 120 fictional earthquake scenarios, six districts per scenario, and four snapshots per district. Ninety whole earthquake scenarios are used for model fitting and thirty for held-out synthetic evaluation, so snapshots from one earthquake do not cross the split.
 
-The form also links to the regional and report JSON views. An assessment with
-`alert=true` and `classification="Investigate"` is the responder-facing alert
-indicator. This version does not send emails or push notifications.
+The fitted model parameters in `models/regional_model.json` correspond to the coefficients reported in the paper. The held-out metrics in `models/validation_metrics.json` measure recovery of the synthetic generator's behaviour only; they do not establish operational accuracy on real earthquakes.
 
-Stored `regional_assessment` describes the moment of that submission. Use
-`/api/regions` for the latest assessment after further submissions.
+`datasets/riverford/evaluated_truth.json` contains hand-authored fictional damage and communications conditions for reviewing the demonstration. It is kept separate from inference inputs and is not an independent validation dataset for the household priority rules.
 
-## Database and existing files
+## Tests
 
-The new app writes **`data/riverford_reports.sqlite3`**, table
-**`riverford_reports`**, including a `record_json` column containing full details.
-In VS Code's SQLite viewer, open that database and table. `record_json` contains
-`priority` and, for form submissions, `regional_assessment`.
-
-Your existing `data/reports.sqlite3` is left intact when applying the new files
-over your existing project. It is not included in this code package or imported
-into the new model: those records lack the district, stable fictional household
-identifier and event timing needed for reliable regional counts.
-
-To merge into your current folder, copy the supplied `backend`, `frontend`,
-`datasets`, `models`, and `tests` files, plus requirements and documentation.
-The compatibility file `backend/prioritisation_model.py` now re-exports the
-revised contextual interface. The old `--demo-hazard` argument is replaced by
-backend regional datasets; use the run command above.
-
-For a fresh isolated run without deleting any existing database:
-
-```powershell
-$env:CS789_DATABASE = "data/another_demo.sqlite3"
-python backend/app.py --seed-demo
-```
-
-## Fictional scenario clock
-
-This exercise uses a fixed snapshot two hours after the fictional earthquake,
-defined in `datasets/riverford/city_context.json`. New form reports are assigned
-that **scenario time**. Their **real receipt time** is stored separately as
-`created_at`. This makes the example repeatable across runs and avoids treating
-the fictional earthquake as today's real event.
-
-To explore another time, edit `hours_since_earthquake` and restart the server.
-Each assessment excludes reports after that snapshot and before the event.
-The fitted model covers approximately 0.5–24 hours; unsupported ranges return
-an explicit review status rather than an extrapolated safety assessment.
-
-`report_feed_complete` means collection has processed every submission that
-reached it up to the snapshot, not that every household could submit. Set it
-to false when collection is incomplete. A database failure returns an error,
-not a zero-report city. An empty district in an available, complete collection
-feed is a valid zero-report observation.
-
-## Included test files and cases
-
-All 12 model tests from the supplied model archive are retained. Added tests
-exercise the merged form, API and persistence. No test refits the model or runs
-long performance benchmarks.
-
-| File | Cases |
-|---|---|
-| `tests/test_model.py` | The original 12 reporting-model and contextual integration tests |
-| `tests/test_api.py` | 20 API/database tests, including submission validation, repeated households, seeding, saved scores, rollback, unavailable feeds and priority boundaries |
-| `tests/test_dashboard.py` | Six dashboard API, context, persistence and unavailable-feed tests |
-| `tests/test_dashboard.cjs` | Eight map, filter, detail, stale-data and text-rendering tests |
-| `tests/test_http.py` | One real local HTTP flow: form/script, submission, report details and regional readback |
-| `tests/test_form.cjs` | Nine form tests: context loading, household limits, needs arrays, receipts, validation, connection failures and repeat-click handling |
-| `tests/cases/submission_cases.json` | Four valid priority examples and 19 invalid submission examples |
-| `tests/cases/regional_expected.json` | Expected counts and classifications for all six Riverford districts |
-| `datasets/riverford/community_reports.json` | All 65 complete fictional form assessments |
-| `datasets/riverford/evaluated_truth.json` | Independent fictional damage/outage truth for reviewing the example |
-| `datasets/training_reports.csv` | All 2,880 fictional training/evaluation rows |
-
-Run the Python tests from the project root:
+Run the Python checks from the repository root:
 
 ```powershell
 python -m unittest discover -s tests -v
 ```
 
-They use temporary SQLite databases. Your working reports are not modified.
-For the optional form behaviour tests, install Node.js 24 or later and run:
+Optional form and dashboard DOM tests require a supported Node.js version:
 
 ```powershell
 npm install
 npm test
 ```
 
-Verified during this merge: 41 Python tests and 17 form/dashboard tests passed in short
-bounded runs. The Python suite includes the real local HTTP test. The form tests
-use jsdom; they verify DOM and submission behaviour, not visual rendering in a
-full browser.
+The tests are bounded functional checks; they do not constitute emergency-system validation.
 
-## Model files and limitations
+## Supplementary literature-review material
 
-`models/regional_model.json` already contains fitted coefficients and dispersion,
-so training is not needed to run the app. `backend/train_regional_model.py`
-and `backend/demo_regions.py` are included, along with the full original model
-datasets and evaluation metrics. See `MODEL_README.md` for algorithm details and
-optional retraining commands. The standalone demo reads JSON fixture reports;
-the merged app reads SQLite reports for its current assessments.
+`literature/retained_sources_101.csv` contains bibliographic metadata for the 101 sources retained during the structured literature review reported in the paper. The file does not redistribute the publications themselves.
 
-Seeded reports are marked `synthetic_community_report` and `fictional_unverified`.
-Their individual priorities are computed from complete form answers and district
-context, not supplied as ground-truth labels. They are demonstration inputs,
-not new training examples for the learned regional model.
+## Legacy environment-variable names
 
-Training and evaluation are synthetic demonstrations. A report shortfall is
-not a count of missing people, and a lower-tail value is not the probability
-that people require rescue. Policy thresholds remain explicit and illustrative.
-No silence alert does not establish safety. Evaluation truth is kept separate
-from prediction inputs.
+Two environment-variable names retain the original development identifier for backwards compatibility:
 
+- `CS789_DATABASE` — optional path for the SQLite runtime database.
+- `CS789_DATASET_DIR` — optional path for the Riverford scenario datasets.
 
-## Upgrade to scored fictional reports
-Stop the server, copy the contents of this ZIP's cs789 folder over your project,
-then run:
-```powershell
-python backend/app.py --seed-demo --port 5001
-```
-Open http://127.0.0.1:5001/dashboard and refresh. Version: riverford-dashboard-2026-10-01.4.
-The seed command upgrades matching legacy count-only rows in one transaction.
-It preserves report IDs, household IDs, scenario times and regional totals.
-It leaves form submissions and already-scored demo entries unchanged, and
-can be repeated without duplicates. Do not delete your database.
-The ZIP contains no database files.
+The `CS789` prefix is only a legacy implementation name; it is not the title or scope of the published research artifact.
 
-There are 36 Central, 18 Eastbank, 4 Hillcrest and 7 South Meadows reports.
-Westbridge and Industrial retain zero reports. Central and Eastbank include
-supply, shelter, access and urgent evacuation examples; the less-impacted
-districts focus on supplies, communication and transport. No sensitive or
-biological fields are used. Existing regional training and evaluated truth are
-unchanged. All four individual priority bands are represented.
+## Licence
+
+The original prototype source code is released under the MIT License; see `LICENSE`.
+
+The original Riverford synthetic datasets and supplementary research data are released under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence; see `datasets/LICENSE`.
+
+Bibliographic metadata in `literature/retained_sources_101.csv` does not alter the copyright or licensing conditions of the cited third-party publications.

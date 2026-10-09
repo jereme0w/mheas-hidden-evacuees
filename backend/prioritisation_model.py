@@ -1,4 +1,4 @@
-"""Import compatibility for the revised, non-sensitive contextual model.
+"""Import compatibility for the paper-aligned contextual model.
 
 Use prioritise_report(CommunityReport, AreaContext), not the old dictionary-only
 API. The merged app handles form translation and loading regional context.

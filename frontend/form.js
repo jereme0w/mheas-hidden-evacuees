@@ -57,6 +57,7 @@ form.addEventListener("submit", async event => {
     if (submitButton.disabled || !form.reportValidity()) return;
     const data = new FormData(form);
     const needs = data.getAll("needs");
+    const highRiskVulnerabilities = data.getAll("high_risk_vulnerabilities");
     if (!needs.length) {
         showStatus("Select at least one type of help needed.", "error");
         document.querySelector('input[name="needs"]').focus();
@@ -66,7 +67,9 @@ form.addEventListener("submit", async event => {
         region_id: data.get("region_id"), household_number: data.get("household_number"),
         reporter_type: data.get("reporter_type"), people_affected: data.get("people_affected"),
         immediate_danger: data.get("immediate_danger"),
-        self_reported_urgency: data.get("self_reported_urgency"), primary_needs: needs,
+        self_reported_urgency: data.get("self_reported_urgency"),
+        vulnerability_count: data.get("vulnerability_count"),
+        high_risk_vulnerabilities: highRiskVulnerabilities, primary_needs: needs,
         shelter_status: data.get("shelter_status"), responder_access: data.get("responder_access")
     };
     submitButton.disabled = true;

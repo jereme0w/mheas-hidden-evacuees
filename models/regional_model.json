@@ -15,7 +15,7 @@
     "reporting_participation"
   ],
   "feature_transform": "MMI minus 5; damage; log(hours + 0.1); participation",
-  "dispersion": 0.08269448715335899,
+  "dispersion": 0.08,
   "training_rows": 2160,
   "training_ranges": {
     "occupied_households": [

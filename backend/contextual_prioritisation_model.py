@@ -1,8 +1,8 @@
-"""Non-sensitive report priority plus learned district reporting assessments.
+"""Paper-aligned household priority and regional visibility assessments.
 
-Only fictional, aggregate context and fictional community reports belong in this
-prototype. Report priority remains an explicit weighted baseline. District
-expectations come from a fitted reporting model, not a fixed report cutoff.
+The household priority model follows Table 3 and Eq. (1) of the accompanying
+paper. District expectations are supplied by the learned regional reporting model.
+All bundled reports and contextual data are fictional demonstration material.
 """
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -12,19 +12,22 @@ from typing import Sequence
 from regional_model import RegionalReportModel
 
 
-# Preserve the draft's relative non-health weights, renormalised after removing V.
-_BASE_WEIGHTS = {"D": .285, "N": .1425, "A": .1425, "P": .095,
-                 "U": .050, "Q": .040, "I": .035, "C": .020}
-PRIORITY_WEIGHTS = {key: value / sum(_BASE_WEIGHTS.values())
-                    for key, value in _BASE_WEIGHTS.items()}
+# Table 3 weights from the paper. These sum to exactly 1.0.
+PRIORITY_WEIGHTS = {
+    "P": .095, "D": .285, "U": .050, "V": .190, "N": .1425,
+    "A": .1425, "Q": .040, "I": .035, "C": .020,
+}
 SHAKING_SCORES = {"light": 2.5, "moderate": 5., "strong": 7.5, "severe": 10.}
 INFRASTRUCTURE_SCORES = {"normal": 0., "minor": 2.5, "moderate": 5., "major": 7.5, "severe": 10.}
-COMMUNICATION_SCORES = {"normal": 0., "intermittent": 5., "major_outage": 7.5, "outage": 10.}
-NEED_SCORES = {"communication": 4., "electricity": 4., "transport": 5.,
-               "other": 5., "food": 6., "sanitation": 6., "water": 8.,
-               "shelter": 8., "rescue": 10., "evacuation": 10., "rescue/evacuation": 10.}
+COMMUNICATION_SCORES = {"normal": 0., "intermittent": 5., "outage": 7.5, "major outage": 10., "major_outage": 10.}
+NEED_SCORES = {
+    "communication": 4., "electricity": 4., "transport": 5., "other": 5.,
+    "food": 6., "sanitation": 6., "water": 8., "shelter": 8., "medical": 9.,
+    "rescue": 10., "evacuation": 10., "rescue/evacuation": 10.,
+}
 SHELTER_SCORES = {"safe": 0., "unsure": 5., "unsafe": 8.}
 ACCESS_SCORES = {"yes": 0., "unsure": 5., "no": 10.}
+HIGH_RISK_VULNERABILITIES = {"injury", "medication_dependency", "limited_mobility"}
 
 
 @dataclass(frozen=True)
@@ -39,6 +42,8 @@ class CommunityReport:
     needs: Sequence[str]
     shelter_status: str
     responder_access: str
+    vulnerability_count: int = 0
+    high_risk_vulnerabilities: Sequence[str] = ()
 
 
 @dataclass(frozen=True)
@@ -96,13 +101,38 @@ def normalise_immediate_danger(value):
 
 
 def normalise_urgency(value):
-    # Use the same 0..10 scale as the other report factors.
-    return float(_integer(value, "urgency", maximum=10))
+    """Compress self-reported urgency exactly as Table 3: 0-2/3-5/6-8/9-10 -> 1/2/3/4."""
+    value = _integer(value, "urgency", maximum=10)
+    if value <= 2:
+        return 1.
+    if value <= 5:
+        return 2.
+    if value <= 8:
+        return 3.
+    return 4.
+
+
+def normalise_vulnerability(count, high_risk_values=()):
+    """Map vulnerability count and apply the Table 3 high-risk floor of 8."""
+    count = _integer(count, "vulnerability_count", minimum=0)
+    if isinstance(high_risk_values, str):
+        raise ValueError("high_risk_vulnerabilities must be a list")
+    values = []
+    for value in high_risk_values:
+        key = _key(value)
+        if key not in HIGH_RISK_VULNERABILITIES:
+            raise ValueError(f"Unknown high-risk vulnerability: {value}")
+        if key not in values:
+            values.append(key)
+    if count < len(values):
+        raise ValueError("vulnerability_count cannot be lower than the number of high-risk vulnerabilities")
+    score = 0. if count == 0 else 5. if count == 1 else 7. if count == 2 else 9.
+    return max(score, 8.) if values else score
 
 
 def normalise_primary_need(values):
     if isinstance(values, str):
-        raise ValueError("needs must be a list of non-sensitive need categories")
+        raise ValueError("needs must be a list of need categories")
     return max((_lookup(value, NEED_SCORES, "need") for value in values), default=0.)
 
 
@@ -117,20 +147,21 @@ def prioritise_report(report, context):
     _key(report.household_id)
     _aware(report.submitted_at)
     factors = {
+        "P": normalise_people_affected(report.people_affected),
         "D": normalise_immediate_danger(report.immediate_danger),
+        "U": normalise_urgency(report.urgency),
+        "V": normalise_vulnerability(report.vulnerability_count, report.high_risk_vulnerabilities),
         "N": max(normalise_primary_need(report.needs),
                  _lookup(report.shelter_status, SHELTER_SCORES, "shelter_status")),
         "A": _lookup(report.responder_access, ACCESS_SCORES, "responder_access"),
-        "P": normalise_people_affected(report.people_affected),
-        "U": normalise_urgency(report.urgency),
         "Q": _lookup(context.shaking, SHAKING_SCORES, "shaking"),
         "I": _lookup(context.infrastructure, INFRASTRUCTURE_SCORES, "infrastructure"),
         "C": _lookup(context.communications, COMMUNICATION_SCORES, "communications"),
     }
-    score = sum(PRIORITY_WEIGHTS[key] * value for key, value in factors.items())
+    score = sum(PRIORITY_WEIGHTS[key] * factors[key] for key in PRIORITY_WEIGHTS)
     return {"report_id": report.report_id, "district": report.district,
             "normalised_factors": factors, "score": round(score, 3),
-            "priority": classify_priority(score), "method": "non_sensitive_weighted_baseline",
+            "priority": classify_priority(score), "method": "weighted_priority_model",
             "context_assessed_at": _aware(context.assessed_at).isoformat(),
             "context_version": context.context_version}
 

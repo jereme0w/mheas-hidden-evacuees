@@ -1,1 +1,5 @@
-The app creates riverford_reports.sqlite3 here. Existing reports.sqlite3 is not changed or imported.
+# Runtime data
+
+The Flask application creates `riverford_reports.sqlite3` in this directory when it runs.
+
+Runtime SQLite files are intentionally excluded from the archived research release. The reproducible fictional inputs are stored under `datasets/`.

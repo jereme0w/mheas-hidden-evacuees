@@ -486,18 +486,82 @@
         </section>
 
 
+        <!-- Vulnerability -->
+        <section class="section">
+            <fieldset>
+                <legend>
+                    6. How many vulnerability factors apply?
+                    <span class="hint">Use the fictional scenario values only.</span>
+                </legend>
+
+                <div class="button-grid four">
+                    <div>
+                        <input type="radio" id="vulnerability0"
+                               name="vulnerability_count" value="0" required>
+                        <label class="choice" for="vulnerability0">None</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="vulnerability1"
+                               name="vulnerability_count" value="1">
+                        <label class="choice" for="vulnerability1">1 factor</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="vulnerability2"
+                               name="vulnerability_count" value="2">
+                        <label class="choice" for="vulnerability2">2 factors</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="vulnerability3"
+                               name="vulnerability_count" value="3+">
+                        <label class="choice" for="vulnerability3">3+ factors</label>
+                    </div>
+                </div>
+
+                <p class="question" style="margin-top:18px">
+                    High-risk vulnerability present?
+                    <span class="hint">Optional. Select any that apply in the fictional scenario.</span>
+                </p>
+                <div class="needs-grid">
+                    <div>
+                        <input type="checkbox" id="injury"
+                               name="high_risk_vulnerabilities" value="injury">
+                        <label class="choice" for="injury">Injury</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="medicationDependency"
+                               name="high_risk_vulnerabilities" value="medication_dependency">
+                        <label class="choice" for="medicationDependency">Medication dependency</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="limitedMobility"
+                               name="high_risk_vulnerabilities" value="limited_mobility">
+                        <label class="choice" for="limitedMobility">Limited mobility</label>
+                    </div>
+                </div>
+            </fieldset>
+        </section>
+
+
         <!-- Needs -->
         <section class="section">
             <fieldset>
 
                 <legend>
-                    6. What help is needed?
+                    7. What help is needed?
                     <span class="hint">
                         Select all that apply.
                     </span>
                 </legend>
 
                 <div class="needs-grid">
+
+                    <div>
+                        <input type="checkbox" id="medical"
+                               name="needs" value="medical">
+                        <label class="choice" for="medical">
+                            Medical
+                        </label>
+                    </div>
 
                     <div>
                         <input type="checkbox" id="rescue"
@@ -582,7 +646,7 @@
             <fieldset>
 
                 <legend>
-                    7. What is the current shelter situation?
+                    8. What is the current shelter situation?
                 </legend>
 
                 <div class="button-grid three">
@@ -622,7 +686,7 @@
             <fieldset>
 
                 <legend>
-                    8. Can emergency responders reach this household?
+                    9. Can emergency responders reach this household?
                 </legend>
 
                 <div class="button-grid three">

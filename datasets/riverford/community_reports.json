@@ -11,6 +11,8 @@
       "people_affected": "1",
       "immediate_danger": "no",
       "self_reported_urgency": 0,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "food"
       ],
@@ -30,6 +32,8 @@
       "people_affected": "2",
       "immediate_danger": "no",
       "self_reported_urgency": 3,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water",
         "food"
@@ -50,6 +54,8 @@
       "people_affected": "3",
       "immediate_danger": "no",
       "self_reported_urgency": 8,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water"
       ],
@@ -69,6 +75,8 @@
       "people_affected": "4+",
       "immediate_danger": "no",
       "self_reported_urgency": 7,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "shelter",
         "transport"
@@ -89,6 +97,8 @@
       "people_affected": "2",
       "immediate_danger": "yes",
       "self_reported_urgency": 8,
+      "vulnerability_count": 2,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water"
       ],
@@ -108,6 +118,8 @@
       "people_affected": "4+",
       "immediate_danger": "yes",
       "self_reported_urgency": 10,
+      "vulnerability_count": 3,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "rescue_evacuation",
         "shelter"
@@ -128,6 +140,8 @@
       "people_affected": "1",
       "immediate_danger": "no",
       "self_reported_urgency": 2,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "communication",
         "electricity"
@@ -148,6 +162,8 @@
       "people_affected": "3",
       "immediate_danger": "no",
       "self_reported_urgency": 5,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "transport"
       ],
@@ -167,6 +183,8 @@
       "people_affected": "1",
       "immediate_danger": "no",
       "self_reported_urgency": 0,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "food"
       ],
@@ -186,6 +204,8 @@
       "people_affected": "2",
       "immediate_danger": "no",
       "self_reported_urgency": 3,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water",
         "food"
@@ -206,6 +226,8 @@
       "people_affected": "3",
       "immediate_danger": "no",
       "self_reported_urgency": 8,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water"
       ],
@@ -225,6 +247,8 @@
       "people_affected": "4+",
       "immediate_danger": "no",
       "self_reported_urgency": 7,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "shelter",
         "transport"
@@ -245,6 +269,8 @@
       "people_affected": "2",
       "immediate_danger": "yes",
       "self_reported_urgency": 8,
+      "vulnerability_count": 2,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water"
       ],
@@ -264,6 +290,8 @@
       "people_affected": "4+",
       "immediate_danger": "yes",
       "self_reported_urgency": 10,
+      "vulnerability_count": 3,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "rescue_evacuation",
         "shelter"
@@ -284,6 +312,8 @@
       "people_affected": "1",
       "immediate_danger": "no",
       "self_reported_urgency": 2,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "communication",
         "electricity"
@@ -304,6 +334,8 @@
       "people_affected": "3",
       "immediate_danger": "no",
       "self_reported_urgency": 5,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "transport"
       ],
@@ -323,6 +355,8 @@
       "people_affected": "1",
       "immediate_danger": "no",
       "self_reported_urgency": 0,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "food"
       ],
@@ -342,6 +376,8 @@
       "people_affected": "2",
       "immediate_danger": "no",
       "self_reported_urgency": 3,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water",
         "food"
@@ -362,6 +398,8 @@
       "people_affected": "3",
       "immediate_danger": "no",
       "self_reported_urgency": 8,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water"
       ],
@@ -381,6 +419,8 @@
       "people_affected": "4+",
       "immediate_danger": "no",
       "self_reported_urgency": 7,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "shelter",
         "transport"
@@ -401,6 +441,8 @@
       "people_affected": "2",
       "immediate_danger": "yes",
       "self_reported_urgency": 8,
+      "vulnerability_count": 2,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water"
       ],
@@ -420,6 +462,8 @@
       "people_affected": "4+",
       "immediate_danger": "yes",
       "self_reported_urgency": 10,
+      "vulnerability_count": 3,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "rescue_evacuation",
         "shelter"
@@ -440,6 +484,8 @@
       "people_affected": "1",
       "immediate_danger": "no",
       "self_reported_urgency": 2,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "communication",
         "electricity"
@@ -460,6 +506,8 @@
       "people_affected": "3",
       "immediate_danger": "no",
       "self_reported_urgency": 5,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "transport"
       ],
@@ -479,6 +527,8 @@
       "people_affected": "1",
       "immediate_danger": "no",
       "self_reported_urgency": 0,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "food"
       ],
@@ -498,6 +548,8 @@
       "people_affected": "2",
       "immediate_danger": "no",
       "self_reported_urgency": 3,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water",
         "food"
@@ -518,6 +570,8 @@
       "people_affected": "3",
       "immediate_danger": "no",
       "self_reported_urgency": 8,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water"
       ],
@@ -537,6 +591,8 @@
       "people_affected": "4+",
       "immediate_danger": "no",
       "self_reported_urgency": 7,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "shelter",
         "transport"
@@ -557,6 +613,8 @@
       "people_affected": "2",
       "immediate_danger": "yes",
       "self_reported_urgency": 8,
+      "vulnerability_count": 2,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water"
       ],
@@ -576,6 +634,8 @@
       "people_affected": "4+",
       "immediate_danger": "yes",
       "self_reported_urgency": 10,
+      "vulnerability_count": 3,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "rescue_evacuation",
         "shelter"
@@ -596,6 +656,8 @@
       "people_affected": "1",
       "immediate_danger": "no",
       "self_reported_urgency": 2,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "communication",
         "electricity"
@@ -616,6 +678,8 @@
       "people_affected": "3",
       "immediate_danger": "no",
       "self_reported_urgency": 5,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "transport"
       ],
@@ -635,6 +699,8 @@
       "people_affected": "1",
       "immediate_danger": "no",
       "self_reported_urgency": 0,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "food"
       ],
@@ -654,6 +720,8 @@
       "people_affected": "2",
       "immediate_danger": "no",
       "self_reported_urgency": 3,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water",
         "food"
@@ -674,6 +742,8 @@
       "people_affected": "3",
       "immediate_danger": "no",
       "self_reported_urgency": 8,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water"
       ],
@@ -693,6 +763,8 @@
       "people_affected": "4+",
       "immediate_danger": "no",
       "self_reported_urgency": 7,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "shelter",
         "transport"
@@ -713,6 +785,8 @@
       "people_affected": "3",
       "immediate_danger": "no",
       "self_reported_urgency": 8,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water"
       ],
@@ -732,6 +806,8 @@
       "people_affected": "4+",
       "immediate_danger": "no",
       "self_reported_urgency": 7,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "shelter",
         "transport"
@@ -752,6 +828,8 @@
       "people_affected": "2",
       "immediate_danger": "yes",
       "self_reported_urgency": 8,
+      "vulnerability_count": 2,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water"
       ],
@@ -771,6 +849,8 @@
       "people_affected": "4+",
       "immediate_danger": "yes",
       "self_reported_urgency": 10,
+      "vulnerability_count": 3,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "rescue_evacuation",
         "shelter"
@@ -791,6 +871,8 @@
       "people_affected": "4+",
       "immediate_danger": "no",
       "self_reported_urgency": 7,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "shelter",
         "transport"
@@ -811,6 +893,8 @@
       "people_affected": "4+",
       "immediate_danger": "yes",
       "self_reported_urgency": 10,
+      "vulnerability_count": 3,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "rescue_evacuation",
         "shelter"
@@ -831,6 +915,8 @@
       "people_affected": "3",
       "immediate_danger": "no",
       "self_reported_urgency": 8,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water"
       ],
@@ -850,6 +936,8 @@
       "people_affected": "4+",
       "immediate_danger": "no",
       "self_reported_urgency": 7,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "shelter",
         "transport"
@@ -870,6 +958,8 @@
       "people_affected": "2",
       "immediate_danger": "yes",
       "self_reported_urgency": 8,
+      "vulnerability_count": 2,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water"
       ],
@@ -889,6 +979,8 @@
       "people_affected": "4+",
       "immediate_danger": "yes",
       "self_reported_urgency": 10,
+      "vulnerability_count": 3,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "rescue_evacuation",
         "shelter"
@@ -909,6 +1001,8 @@
       "people_affected": "4+",
       "immediate_danger": "no",
       "self_reported_urgency": 7,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "shelter",
         "transport"
@@ -929,6 +1023,8 @@
       "people_affected": "4+",
       "immediate_danger": "yes",
       "self_reported_urgency": 10,
+      "vulnerability_count": 3,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "rescue_evacuation",
         "shelter"
@@ -949,6 +1045,8 @@
       "people_affected": "3",
       "immediate_danger": "no",
       "self_reported_urgency": 8,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water"
       ],
@@ -968,6 +1066,8 @@
       "people_affected": "4+",
       "immediate_danger": "no",
       "self_reported_urgency": 7,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "shelter",
         "transport"
@@ -988,6 +1088,8 @@
       "people_affected": "2",
       "immediate_danger": "yes",
       "self_reported_urgency": 8,
+      "vulnerability_count": 2,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water"
       ],
@@ -1007,6 +1109,8 @@
       "people_affected": "4+",
       "immediate_danger": "yes",
       "self_reported_urgency": 10,
+      "vulnerability_count": 3,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "rescue_evacuation",
         "shelter"
@@ -1027,6 +1131,8 @@
       "people_affected": "4+",
       "immediate_danger": "no",
       "self_reported_urgency": 7,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "shelter",
         "transport"
@@ -1047,6 +1153,8 @@
       "people_affected": "4+",
       "immediate_danger": "yes",
       "self_reported_urgency": 10,
+      "vulnerability_count": 3,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "rescue_evacuation",
         "shelter"
@@ -1067,6 +1175,8 @@
       "people_affected": "1",
       "immediate_danger": "no",
       "self_reported_urgency": 0,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "food"
       ],
@@ -1086,6 +1196,8 @@
       "people_affected": "2",
       "immediate_danger": "no",
       "self_reported_urgency": 3,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water",
         "food"
@@ -1106,6 +1218,8 @@
       "people_affected": "3",
       "immediate_danger": "no",
       "self_reported_urgency": 8,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water"
       ],
@@ -1125,6 +1239,8 @@
       "people_affected": "1",
       "immediate_danger": "no",
       "self_reported_urgency": 2,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "communication",
         "electricity"
@@ -1145,6 +1261,8 @@
       "people_affected": "1",
       "immediate_danger": "no",
       "self_reported_urgency": 0,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "food"
       ],
@@ -1164,6 +1282,8 @@
       "people_affected": "2",
       "immediate_danger": "no",
       "self_reported_urgency": 3,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water",
         "food"
@@ -1184,6 +1304,8 @@
       "people_affected": "1",
       "immediate_danger": "no",
       "self_reported_urgency": 2,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "communication",
         "electricity"
@@ -1204,6 +1326,8 @@
       "people_affected": "3",
       "immediate_danger": "no",
       "self_reported_urgency": 5,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "transport"
       ],
@@ -1223,6 +1347,8 @@
       "people_affected": "1",
       "immediate_danger": "no",
       "self_reported_urgency": 0,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "food"
       ],
@@ -1242,6 +1368,8 @@
       "people_affected": "2",
       "immediate_danger": "no",
       "self_reported_urgency": 3,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "water",
         "food"
@@ -1262,6 +1390,8 @@
       "people_affected": "1",
       "immediate_danger": "no",
       "self_reported_urgency": 2,
+      "vulnerability_count": 0,
+      "high_risk_vulnerabilities": [],
       "primary_needs": [
         "communication",
         "electricity"
