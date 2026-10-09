@@ -1,0 +1,38 @@
+{
+  "creators": [
+    {
+      "name": "Ibrahim, Jeremy",
+      "affiliation": "University of Auckland"
+    },
+    {
+      "name": "Mahanti, Aniket",
+      "affiliation": "University of Auckland"
+    },
+    {
+      "name": "Gul, Sonia",
+      "affiliation": "Otago Polytechnic"
+    },
+    {
+      "name": "Mehdipour, Farhad",
+      "affiliation": "Otago Polytechnic"
+    },
+    {
+      "name": "Aharari, Ari",
+      "affiliation": "Sojo University"
+    }
+  ],
+  "title": "When Technology Cannot See Everyone: Hidden Evacuees in Post-Disaster Response — Research Prototype and Supplementary Materials",
+  "version": "1.0.0",
+  "access_right": "open",
+  "upload_type": "software",
+  "language": "eng",
+  "keywords": [
+    "disaster response",
+    "hidden evacuees",
+    "information visibility",
+    "community reporting",
+    "regional visibility",
+    "synthetic scenario",
+    "Riverford"
+  ]
+}
